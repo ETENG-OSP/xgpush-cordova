@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.eteng.push.xgpush"
+    version="0.0.1"
+    xmlns="http://apache.org/cordova/ns/plugins/1.0" >
+
+    <name>XGPush</name>
+
+    <description>Tencent XGPush Plugin</description>
+
+    <license>MIT</license>
+
+    <keywords>cordova,push,chinese</keywords>
+
+    <repo>https://github.com/gengen1988/XGPush.git</repo>
+    <issue>https://github.com/gengen1988/XGPush/issues</issue>
+
+	<!-- 
+    <js-module name="XGPush" src="www/XGPush.js" >
+        <clobbers target="XGPush" />
+    </js-module>
+    -->
+
+    <!-- android -->
+    <platform name="android" >
+        
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="XGPush">
+                <param name="android-package" value="com.eteng.push.xgpush.XGPush" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+        <config-file parent="/manifest" target="AndroidManifest.xml">
+			<uses-permission android:name="android.permission.INTERNET" />
+			<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+			<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+			<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+			<uses-permission android:name="android.permission.RESTART_PACKAGES" />
+			<uses-permission android:name="android.permission.BROADCAST_STICKY" />
+			<uses-permission android:name="android.permission.WRITE_SETTINGS" />
+			<uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+			<uses-permission android:name="android.permission.WAKE_LOCK" />
+			<uses-permission android:name="android.permission.GET_TASKS" />
+			<uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+			<uses-permission android:name="android.permission.READ_LOGS" />
+			<uses-permission android:name="android.permission.VIBRATE" />
+        </config-file>
+        
+        <config-file parent="/manifest/application" target="AndroidManifest.xml" >
+            <receiver android:name="com.tencent.android.tpush.XGPushReceiver" android:process=":xg_service_v2" >
+                <intent-filter>
+                    <action android:name="android.intent.action.BOOT_COMPLETED" />
+                    <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                    <action android:name="com.tencent.android.tpush.action.SDK" />
+                    <action android:name="android.intent.action.USER_PRESENT" />
+                    <action android:name="com.tencent.android.tpush.action.INTERNAL_PUSH_MESSAGE" />
+                </intent-filter>
+            </receiver>
+
+            <!-- 信鸽push服务 -->
+            <service
+                android:name="com.tencent.android.tpush.service.XGPushService"
+                android:exported="true"
+                android:process=":xg_service_v2" />
+
+            <meta-data
+                android:name="XG_V2_ACCESS_ID"
+                android:value="2100005168" />
+            <!-- 请修改为APP的AccessKey -->
+
+            <meta-data
+                android:name="XG_V2_ACCESS_KEY"
+                android:value="AB9FL2P3E77W" />
+        </config-file>
+        
+        <!-- 
+        <source-file src="src/android/HybridPushReceiver.java" target-dir="src/com/eteng/android/push/xgpush" />
+        -->
+    </platform>
+
+</plugin>
