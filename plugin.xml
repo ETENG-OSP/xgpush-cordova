@@ -81,7 +81,7 @@
         
         <source-file src="src/android/DiskHeap.java" target-dir="src/com/eteng/push/xgpush" />
         <source-file src="src/android/PushPlugin.java" target-dir="src/com/eteng/push/xgpush" />
-        <source-file src="src/android/XGPlugin.java" target-dir="src/com/eteng/push/xgpush" />
+        <source-file src="src/android/XGPush.java" target-dir="src/com/eteng/push/xgpush" />
         <source-file src="src/android/XGReceiver.java" target-dir="src/com/eteng/push/xgpush" />
         
         <source-file src="src/android/libs/Xg-sdk-v2.11.jar" target-dir="libs" />
