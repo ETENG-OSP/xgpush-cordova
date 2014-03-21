@@ -66,7 +66,7 @@
                 android:exported="true"
                 android:process=":xg_service_v2" />
 
-			<receiver android:name="com.eteng.push.xgpush.XGPush">
+			<receiver android:name="com.eteng.push.xgpush.XGReceiver">
 				<intent-filter>
 					<!-- 接收消息透传 -->
 					<action android:name="com.tencent.android.tpush.action.PUSH_MESSAGE" />
