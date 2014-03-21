@@ -138,5 +138,6 @@ public abstract class PushPlugin extends CordovaPlugin {
 	protected abstract void onSetTag(Context context, String tag);
 	protected abstract void onDeleteTag(Context context, String tag);
 	protected abstract void onClearCache(Context context);
+	protected abstract void onSetIdAndKey(Context context, long id, String key);
 
 }
