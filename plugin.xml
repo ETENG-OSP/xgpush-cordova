@@ -15,11 +15,9 @@
     <repo>https://github.com/gengen1988/XGPush.git</repo>
     <issue>https://github.com/gengen1988/XGPush/issues</issue>
 
-	<!-- 
-    <js-module name="XGPush" src="www/XGPush.js" >
+    <js-module name="XGPush" src="www/xgpush.js" >
         <clobbers target="XGPush" />
     </js-module>
-    -->
 
     <!-- android -->
     <platform name="android" >
@@ -79,10 +77,6 @@
         <source-file src="src/android/libs/armeabi-v7a/libtpnsSecurity.so" target-dir="libs/armeabi-v7a" />
         <source-file src="src/android/libs/mips/libtpnsSecurity.so" target-dir="libs/mips" />
         <source-file src="src/android/libs/x86/libtpnsSecurity.so" target-dir="libs/x86" />
-        
-        <!-- 
-        <source-file src="src/android/HybridPushReceiver.java" target-dir="src/com/eteng/android/push/xgpush" />
-        -->
     </platform>
 
 </plugin>
