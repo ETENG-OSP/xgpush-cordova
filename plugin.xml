@@ -28,6 +28,7 @@
         <config-file parent="/*" target="res/xml/config.xml">
             <feature name="XGPush">
                 <param name="android-package" value="com.eteng.push.xgpush.XGPush" />
+                <param name="onload" value="true" />
             </feature>
         </config-file>
 

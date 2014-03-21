@@ -18,16 +18,15 @@ var ACTION_SET_ID_AND_KEY = 'set_id_and_key';
 var ACTION_READY = 'ready';
 
 var EMPTY_FN = function () {};
+var ready = function () {
+  exec(EMPTY_FN, EMPTY_FN, SERVICE, ACTION_READY, []);
+};
 
-function XGPush() {
-}
+document.addEventListener('deviceready', ready, false);
+document.addEventListener('resume', ready, false);
 
 XGPush.prototype.success = EMPTY_FN;
 XGPush.prototype.error = EMPTY_FN;
-
-XGPush.prototype.ready = function (success, error) {
-  exec(success || this.success, error || this.error, SERVICE, ACTION_READY, []);
-}
 
 XGPush.prototype.setIdAndKey = function (id, key, success, error) {
   exec(success || this.success, error || this.error, SERVICE, ACTION_SET_ID_AND_KEY, [id, key]);

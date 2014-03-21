@@ -35,13 +35,15 @@ public abstract class PushPlugin extends CordovaPlugin {
 	
 	@Override
 	public void initialize(CordovaInterface cordova, CordovaWebView webView) {
+		Context context = cordova.getActivity().getApplicationContext();
 		safeToFireMessages = false;
-		super.initialize(cordova, webView);
-		
 		appView = webView;
-		messageCache = new DiskHeap(cordova.getActivity().getApplicationContext());
+		messageCache = new DiskHeap(context);
+		onInitialize(context);
+		
+		super.initialize(cordova, webView);
 	}
-	
+
 	@Override
 	public void onPause(boolean multitasking) {
 		safeToFireMessages = false;
@@ -139,5 +141,6 @@ public abstract class PushPlugin extends CordovaPlugin {
 	protected abstract void onDeleteTag(Context context, String tag);
 	protected abstract void onClearCache(Context context);
 	protected abstract void onSetIdAndKey(Context context, long id, String key);
+	protected abstract void onInitialize(Context applicationContext);
 
 }

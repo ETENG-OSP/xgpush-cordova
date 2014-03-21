@@ -8,6 +8,12 @@ import com.tencent.android.tpush.XGPushManager;
 import com.tencent.android.tpush.horse.Tools;
 
 public class XGPush extends PushPlugin {
+	
+	@Override
+	protected void onInitialize(Context context) {
+		XGPushConfig.enableDebug(context, true);
+		XGPushManager.registerPush(context);
+	}
 
 	@Override
 	protected void onEnableDebug(Context context, boolean enable) {
@@ -58,7 +64,6 @@ public class XGPush extends PushPlugin {
 	protected void onSetIdAndKey(Context context, long id, String key) {
 		XGPushConfig.setAccessId(context, id);
 		XGPushConfig.setAccessKey(context, key);
-
 	}
 
 }
