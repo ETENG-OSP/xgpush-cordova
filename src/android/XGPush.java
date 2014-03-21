@@ -7,7 +7,7 @@ import com.tencent.android.tpush.XGPushConfig;
 import com.tencent.android.tpush.XGPushManager;
 import com.tencent.android.tpush.horse.Tools;
 
-public class XGPlugin extends PushPlugin {
+public class XGPush extends PushPlugin {
 
 	@Override
 	protected void onEnableDebug(Context context, boolean enable) {
