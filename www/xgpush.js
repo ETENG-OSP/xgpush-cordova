@@ -22,6 +22,9 @@ var ready = function () {
   exec(EMPTY_FN, EMPTY_FN, SERVICE, ACTION_READY, []);
 };
 
+function XGPush() {
+}
+
 document.addEventListener('deviceready', ready, false);
 document.addEventListener('resume', ready, false);
 
