@@ -27,7 +27,6 @@
         <config-file parent="/*" target="res/xml/config.xml">
             <feature name="XGPush">
                 <param name="android-package" value="com.eteng.push.xgpush.XGPush" />
-                <param name="onload" value="true" />
             </feature>
         </config-file>
 
@@ -65,16 +64,21 @@
                 android:name="com.tencent.android.tpush.service.XGPushService"
                 android:exported="true"
                 android:process=":xg_service_v2" />
-
-            <meta-data
-                android:name="XG_V2_ACCESS_ID"
-                android:value="2100005168" />
-            <!-- 请修改为APP的AccessKey -->
-
-            <meta-data
-                android:name="XG_V2_ACCESS_KEY"
-                android:value="AB9FL2P3E77W" />
         </config-file>
+        
+        <source-file src="src/android/DiskHeap.java" target-dir="src/com/eteng/push/xgpush" />
+        <source-file src="src/android/PushPlugin.java" target-dir="src/com/eteng/push/xgpush" />
+        <source-file src="src/android/XGPlugin.java" target-dir="src/com/eteng/push/xgpush" />
+        <source-file src="src/android/XGReceiver.java" target-dir="src/com/eteng/push/xgpush" />
+        
+        <source-file src="src/android/libs/Xg-sdk-v2.11.jar" target-dir="libs" />
+        <source-file src="src/android/libs/wup-1.0.0-SNAPSHOT.jar" target-dir="libs" />
+        <source-file src="src/android/libs/mid-1.0.0.jar" target-dir="libs" />
+        <source-file src="src/android/libs/httpmime-4.1.1.jar" target-dir="libs" />
+        <source-file src="src/android/libs/armeabi/libtpnsSecurity.so" target-dir="libs/armeabi" />
+        <source-file src="src/android/libs/armeabi-v7a/libtpnsSecurity.so" target-dir="libs/armeabi-v7a" />
+        <source-file src="src/android/libs/mips/libtpnsSecurity.so" target-dir="libs/mips" />
+        <source-file src="src/android/libs/x86/libtpnsSecurity.so" target-dir="libs/x86" />
         
         <!-- 
         <source-file src="src/android/HybridPushReceiver.java" target-dir="src/com/eteng/android/push/xgpush" />
