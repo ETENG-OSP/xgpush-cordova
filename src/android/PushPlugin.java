@@ -18,13 +18,14 @@ import android.util.Log;
 public abstract class PushPlugin extends CordovaPlugin {
 
 	public static final String TAG = "PushPlugin";
-	public static final String ACTION_ENABLE_DEBUG = "register";
-	public static final String ACTION_REGISTER_PUSH = "register";
-	public static final String ACTION_REGISTER_ACCOUNT = "register";
-	public static final String ACTION_UNREGISTER_PUSH = "register";
-	public static final String ACTION_SET_TAG = "register";
-	public static final String ACTION_DELETE_TAG = "register";
-	public static final String ACTION_CLEAR_CACHE = "register";
+	public static final String ACTION_ENABLE_DEBUG = "enable_debug";
+	public static final String ACTION_REGISTER_PUSH = "register_push";
+	public static final String ACTION_REGISTER_ACCOUNT = "register_action";
+	public static final String ACTION_UNREGISTER_PUSH = "unregister_push";
+	public static final String ACTION_SET_TAG = "set_tag";
+	public static final String ACTION_DELETE_TAG = "delete_tag";
+	public static final String ACTION_CLEAR_CACHE = "clear_cache";
+	public static final String ACTION_SET_ID_AND_KEY = "set_id_and_key";
 	
 	public static final String ACTION_READY = "ready";
 	
@@ -82,6 +83,11 @@ public abstract class PushPlugin extends CordovaPlugin {
 		} else if (action.equals(ACTION_ENABLE_DEBUG)) {
 			boolean enable = args.getBoolean(0);
 			this.onEnableDebug(context, enable);
+			
+		} else if (ACTION_SET_ID_AND_KEY.equals(action)) {
+			long id = args.getLong(0);
+			String key = args.getString(1);
+			this.onSetIdAndKey(context, id, key);
 			
 		} else if (ACTION_READY.equals(action)) {
 			this.onReady();
