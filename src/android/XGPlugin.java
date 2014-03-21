@@ -53,6 +53,12 @@ public class XGPlugin extends PushPlugin {
 	protected void onActivityResume(Activity activity) {
 		XGPushManager.onActivityStarted(activity);
 	}
-	
+
+	@Override
+	protected void onSetIdAndKey(Context context, long id, String key) {
+		XGPushConfig.setAccessId(context, id);
+		XGPushConfig.setAccessKey(context, key);
+
+	}
 
 }

@@ -1,10 +1,82 @@
 var exec = require('cordova/exec');
 
+var SERVICE='XGPush';
+
+var ACTION_ENABLE_DEBUG = 'enable_debug';
+var ACTION_REGISTER_PUSH = 'register_push';
+var ACTION_REGISTER_ACCOUNT = 'register_action';
+var ACTION_UNREGISTER_PUSH = 'unregister_push';
+var ACTION_SET_TAG = 'set_tag';
+var ACTION_DELETE_TAG = 'delete_tag';
+var ACTION_CLEAR_CACHE = 'clear_cache';
+var ACTION_SET_ID_AND_KEY = 'set_id_and_key';
+
 function XGPush() {
 }
 
 XGPush.prototype.setIdAndKey = function (id, key, success, error) {
-	exec(success, error, 'XGPush', 'set_id_and_key', [id, key]);
+  exec(success, error, SERVICE, 'set_id_and_key', [id, key]);
+}
+
+XGPush.prototype.enableDebug = function (flag, success, error) {
+  exec(success, error, SERVICE, ACTION_ENABLE_DEBUG, [flag]);
+}
+
+XGPush.prototype.registerPush = function (success, error) {
+  exec(success, error, SERVICE, ACTION_REGISTER_PUSH, []);
+}
+
+XGPush.prototype.unregisterPush = function (success, error){
+  exec(success, error, SERVICE, ACTION_UNREGISTER_PUSH, []);
+}
+
+XGPush.prototype.setTag = function (tag, success, error){
+  exec(success, error, SERVICE, ACTION_ET_TAG, [tag]);
+}
+
+XGPush.prototype.deleteTag = function (tag, success, error){
+  exec(success, error, SERVICE, ACTION_DELETE_TAG, [tag]);
+}
+
+XGPush.prototype.clearCache = function (success, error){
+  exec(success, error, SERVICE, ACTION_CLEAR_CACHE, []);
+}
+
+XGPush.prototype.registerAccount = function (success, error){
+  exec(success, error, SERVICE, ACTION_REGISTER_ACCOUNT, []);
 }
 
 module.exports = new XGPush();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
