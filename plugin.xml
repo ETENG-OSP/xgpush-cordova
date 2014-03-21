@@ -22,6 +22,9 @@
     <!-- android -->
     <platform name="android" >
         
+        <preference name="ACCESS_ID" />
+        <preference name="ACCESS_KEY" />
+        
         <config-file parent="/*" target="res/xml/config.xml">
             <feature name="XGPush">
                 <param name="android-package" value="com.eteng.push.xgpush.XGPlugin" />
@@ -62,6 +65,9 @@
                 android:name="com.tencent.android.tpush.service.XGPushService"
                 android:exported="true"
                 android:process=":xg_service_v2" />
+
+			<meta-data android:name="XG_V2_ACCESS_ID" android:value="$ACCESS_ID" />
+			<meta-data android:name="XG_V2_ACCESS_KEY" android:value="$ACCESS_KEY" />
         </config-file>
         
         <source-file src="src/android/DiskHeap.java" target-dir="src/com/eteng/push/xgpush" />
