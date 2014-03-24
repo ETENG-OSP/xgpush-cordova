@@ -66,7 +66,8 @@ public abstract class PushPlugin extends CordovaPlugin {
 			this.onRegisterPush(context);
 			
 		} else if (action.equals(ACTION_REGISTER_ACCOUNT)) {
-			this.onRegisterAccount();
+			String account = args.getString(0);
+			this.onRegisterAccount(context, account);
 			
 		} else if (action.equals(ACTION_SET_TAG)) {
 			String tag = args.getString(0);
@@ -135,7 +136,7 @@ public abstract class PushPlugin extends CordovaPlugin {
 	
 	protected abstract void onEnableDebug(Context context, boolean enable);
 	protected abstract void onRegisterPush(Context context);
-	protected abstract void onRegisterAccount();
+	protected abstract void onRegisterAccount(Context context, String account);
 	protected abstract void onUnregisterPush(Context context);
 	protected abstract void onSetTag(Context context, String tag);
 	protected abstract void onDeleteTag(Context context, String tag);

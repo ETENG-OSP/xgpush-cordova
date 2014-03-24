@@ -24,9 +24,10 @@ public class XGPush extends PushPlugin {
 	protected void onRegisterPush(Context context) {
 		XGPushManager.registerPush(context);
 	}
-
+	
 	@Override
-	protected void onRegisterAccount() {
+	protected void onRegisterAccount(Context context, String account) {
+		XGPushManager.registerPush(context, account);
 	}
 
 	@Override

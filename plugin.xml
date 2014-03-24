@@ -22,9 +22,6 @@
     <!-- android -->
     <platform name="android" >
         
-        <preference name="ACCESS_ID" />
-        <preference name="ACCESS_KEY" />
-        
         <config-file parent="/*" target="res/xml/config.xml">
             <feature name="XGPush">
                 <param name="android-package" value="com.eteng.push.xgpush.XGPush" />
@@ -76,8 +73,6 @@
 				</intent-filter>
 			</receiver>
 
-			<meta-data android:name="XG_V2_ACCESS_ID" android:value="$ACCESS_ID" />
-			<meta-data android:name="XG_V2_ACCESS_KEY" android:value="$ACCESS_KEY" />
         </config-file>
         
         <source-file src="src/android/DiskHeap.java" target-dir="src/com/eteng/push/xgpush" />
@@ -93,6 +88,7 @@
         <source-file src="src/android/libs/armeabi-v7a/libtpnsSecurity.so" target-dir="libs/armeabi-v7a" />
         <source-file src="src/android/libs/mips/libtpnsSecurity.so" target-dir="libs/mips" />
         <source-file src="src/android/libs/x86/libtpnsSecurity.so" target-dir="libs/x86" />
+        
     </platform>
 
 </plugin>

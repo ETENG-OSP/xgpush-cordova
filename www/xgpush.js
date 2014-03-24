@@ -59,8 +59,8 @@ XGPush.prototype.clearCache = function (success, error){
   exec(success || this.success, error || this.error, SERVICE, ACTION_CLEAR_CACHE, []);
 }
 
-XGPush.prototype.registerAccount = function (success, error){
-  exec(success || this.success, error || this.error, SERVICE, ACTION_REGISTER_ACCOUNT, []);
+XGPush.prototype.registerAccount = function (account, success, error){
+  exec(success || this.success, error || this.error, SERVICE, ACTION_REGISTER_ACCOUNT, [account]);
 }
 
 module.exports = new XGPush();
