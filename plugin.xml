@@ -80,14 +80,12 @@
         <source-file src="src/android/XGPush.java" target-dir="src/com/eteng/push/xgpush" />
         <source-file src="src/android/XGReceiver.java" target-dir="src/com/eteng/push/xgpush" />
         
-        <source-file src="src/android/libs/Xg-sdk-v2.11.jar" target-dir="libs" />
+        <source-file src="src/android/libs/Xg_sdk_v2.37.jar" target-dir="libs" />
         <source-file src="src/android/libs/wup-1.0.0-SNAPSHOT.jar" target-dir="libs" />
-        <source-file src="src/android/libs/mid-1.0.0.jar" target-dir="libs" />
-        <source-file src="src/android/libs/httpmime-4.1.1.jar" target-dir="libs" />
+        <source-file src="src/android/libs/mid-sdk-2.10.jar" target-dir="libs" />
+        <source-file src="src/android/libs/android-support-v4.jar" target-dir="libs" />
         <source-file src="src/android/libs/armeabi/libtpnsSecurity.so" target-dir="libs/armeabi" />
-        <source-file src="src/android/libs/armeabi-v7a/libtpnsSecurity.so" target-dir="libs/armeabi-v7a" />
-        <source-file src="src/android/libs/mips/libtpnsSecurity.so" target-dir="libs/mips" />
-        <source-file src="src/android/libs/x86/libtpnsSecurity.so" target-dir="libs/x86" />
+        <source-file src="src/android/libs/armeabi/libtpnsWatchDog.so" target-dir="libs/armeabi" />
         
     </platform>
 
