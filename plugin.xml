@@ -1,91 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns:android="http://schemas.android.com/apk/res/android"
-    id="com.eteng.push.xgpush"
-    version="0.0.1"
-    xmlns="http://apache.org/cordova/ns/plugins/1.0" >
+  id="com.eteng.push.xgpush"
+  version="0.0.2">
 
-    <name>XGPush</name>
+  <name>XGPush</name>
+  <description>Tencent XGPush Plugin</description>
+  <license>MIT</license>
+  <author>Gen Liu</author>
+  <keywords>cordova,push,chinese</keywords>
 
-    <description>Tencent XGPush Plugin</description>
+  <repo>https://github.com/gengen1988/XGPush.git</repo>
+  <issue>https://github.com/gengen1988/XGPush/issues</issue>
 
-    <license>MIT</license>
+  <engines>
+    <engine name="cordova" version=">3.0.0" />
+  </engines>
 
-    <keywords>cordova,push,chinese</keywords>
+  <preference name="ACCESS_ID" />
+  <preference name="ACCESS_KEY" />
 
-    <repo>https://github.com/gengen1988/XGPush.git</repo>
-    <issue>https://github.com/gengen1988/XGPush/issues</issue>
+  <js-module name="XGPush" src="www/xgpush.js">
+    <clobbers target="XGPush" />
+  </js-module>
 
-    <js-module name="XGPush" src="www/xgpush.js" >
-        <clobbers target="XGPush" />
-    </js-module>
+  <!-- android -->
+  <platform name="android" >
 
-    <!-- android -->
-    <platform name="android" >
-        
-        <config-file parent="/*" target="res/xml/config.xml">
-            <feature name="XGPush">
-                <param name="android-package" value="com.eteng.push.xgpush.XGPush" />
-                <param name="onload" value="true" />
-            </feature>
-        </config-file>
+    <config-file target="AndroidManifest.xml" parent="/manifest">
 
-        <config-file parent="/manifest" target="AndroidManifest.xml">
-			<uses-permission android:name="android.permission.INTERNET" />
-			<uses-permission android:name="android.permission.READ_PHONE_STATE" />
-			<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-			<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-			<uses-permission android:name="android.permission.RESTART_PACKAGES" />
-			<uses-permission android:name="android.permission.BROADCAST_STICKY" />
-			<uses-permission android:name="android.permission.WRITE_SETTINGS" />
-			<uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
-			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-			<uses-permission android:name="android.permission.WAKE_LOCK" />
-			<uses-permission android:name="android.permission.GET_TASKS" />
-			<uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
-			<uses-permission android:name="android.permission.READ_LOGS" />
-			<uses-permission android:name="android.permission.VIBRATE" />
-        </config-file>
-        
-        <config-file parent="/manifest/application" target="AndroidManifest.xml" >
-            <receiver android:name="com.tencent.android.tpush.XGPushReceiver" android:process=":xg_service_v2" >
-                <intent-filter>
-                    <action android:name="android.intent.action.BOOT_COMPLETED" />
-                    <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-                    <action android:name="com.tencent.android.tpush.action.SDK" />
-                    <action android:name="android.intent.action.USER_PRESENT" />
-                    <action android:name="com.tencent.android.tpush.action.INTERNAL_PUSH_MESSAGE" />
-                </intent-filter>
-            </receiver>
+      <!-- 【必须】 信鸽SDK所需权限 -->
+      <uses-permission android:name="android.permission.INTERNET" />
+      <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+      <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+      <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+      <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+      <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+      <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+      <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+      <uses-permission android:name="android.permission.WAKE_LOCK" />
+      <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+      <uses-permission android:name="android.permission.GET_TASKS" />
+      <uses-permission android:name="android.permission.READ_LOGS" />
+      <uses-permission android:name="android.permission.VIBRATE" />
 
-            <!-- 信鸽push服务 -->
-            <service
-                android:name="com.tencent.android.tpush.service.XGPushService"
-                android:exported="true"
-                android:process=":xg_service_v2" />
+      <!-- 【可选】 信鸽SDK所需权限 -->
+      <!--
+      <uses-permission android:name="android.permission.BLUETOOTH" />
+      <uses-permission android:name="android.permission.BATTERY_STATS" />
+       -->
 
-			<receiver android:name="com.eteng.push.xgpush.XGReceiver">
-				<intent-filter>
-					<!-- 接收消息透传 -->
-					<action android:name="com.tencent.android.tpush.action.PUSH_MESSAGE" />
-					<!-- 监听注册、反注册、设置/删除标签、通知被点击等处理结果 -->
-					<action android:name="com.tencent.android.tpush.action.FEEDBACK" />
-				</intent-filter>
-			</receiver>
+    </config-file>
 
-        </config-file>
-        
-        <source-file src="src/android/DiskHeap.java" target-dir="src/com/eteng/push/xgpush" />
-        <source-file src="src/android/PushPlugin.java" target-dir="src/com/eteng/push/xgpush" />
-        <source-file src="src/android/XGPush.java" target-dir="src/com/eteng/push/xgpush" />
-        <source-file src="src/android/XGReceiver.java" target-dir="src/com/eteng/push/xgpush" />
-        
-        <source-file src="src/android/libs/Xg_sdk_v2.37.jar" target-dir="libs" />
-        <source-file src="src/android/libs/wup-1.0.0-SNAPSHOT.jar" target-dir="libs" />
-        <source-file src="src/android/libs/mid-sdk-2.10.jar" target-dir="libs" />
-        <source-file src="src/android/libs/armeabi/libtpnsSecurity.so" target-dir="libs/armeabi" />
-        <source-file src="src/android/libs/armeabi/libtpnsWatchDog.so" target-dir="libs/armeabi" />
-        
-    </platform>
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+
+      <!-- 【必须】 信鸽receiver广播接收 -->
+      <receiver android:name="com.tencent.android.tpush.XGPushReceiver"
+        android:process=":xg_service_v2" >
+        <intent-filter android:priority="0x7fffffff" >
+          <!-- 【必须】 信鸽SDK的内部广播 -->
+          <action android:name="com.tencent.android.tpush.action.SDK" />
+          <action android:name="com.tencent.android.tpush.action.INTERNAL_PUSH_MESSAGE" />
+          <!-- 【必须】 系统广播：开屏和网络切换 -->
+          <action android:name="android.intent.action.USER_PRESENT" />
+          <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+
+          <!-- 【可选】 一些常用的系统广播，增强信鸽service的复活机会，请根据需要选择。当然，你也可以添加APP自定义的一些广播让启动service -->
+          <!--
+          <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
+          <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+          <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+           -->
+        </intent-filter>
+      </receiver>
+
+      <!-- 【必须】 (2.30及以上版新增)展示通知的activity -->
+      <!-- 【注意】 如果被打开的activity是启动模式为SingleTop，SingleTask或SingleInstance，请根据通知的异常自查列表第8点处理-->
+      <activity android:name="com.tencent.android.tpush.XGPushActivity"
+        android:exported="true" >
+        <intent-filter>
+          <!-- 若使用AndroidStudio，请设置android:name="android.intent.action"-->
+          <action android:name="android.intent.action" />
+        </intent-filter>
+      </activity>
+
+      <!-- 【必须】 信鸽service -->
+      <service android:name="com.tencent.android.tpush.service.XGPushService"
+        android:exported="true"
+        android:persistent="true"
+        android:process=":xg_service_v2">
+      </service>
+
+      <!-- 【必须】 通知service，此选项有助于提高抵达率 -->
+      <service android:name="com.tencent.android.tpush.rpc.XGRemoteService"
+        android:exported="true" >
+        <intent-filter>
+          <action android:name="$PACKAGE_NAME.PUSH_ACTION" />
+        </intent-filter>
+      </service>
+
+      <!-- 【必须】 请将YOUR_ACCESS_ID修改为APP的AccessId，“21”开头的10位数字，中间没空格 -->
+      <meta-data android:name="XG_V2_ACCESS_ID"
+        android:value="$ACCESS_ID">
+      </meta-data>
+      <!-- 【必须】 请将YOUR_ACCESS_KEY修改为APP的AccessKey，“A”开头的12位字符串，中间没空格 -->
+      <meta-data android:name="XG_V2_ACCESS_KEY"
+        android:value="$ACCESS_KEY">
+      </meta-data>
+
+    </config-file>
+
+    <source-file src="src/android/DiskHeap.java" target-dir="src/com/eteng/push/xgpush" />
+    <source-file src="src/android/PushPlugin.java" target-dir="src/com/eteng/push/xgpush" />
+    <source-file src="src/android/XGPush.java" target-dir="src/com/eteng/push/xgpush" />
+    <source-file src="src/android/XGReceiver.java" target-dir="src/com/eteng/push/xgpush" />
+
+    <source-file src="src/android/libs/Xg_sdk_v2.37.jar" target-dir="libs" />
+    <source-file src="src/android/libs/wup-1.0.0-SNAPSHOT.jar" target-dir="libs" />
+    <source-file src="src/android/libs/mid-sdk-2.10.jar" target-dir="libs" />
+
+    <source-file src="src/android/libs/armeabi/libtpnsSecurity.so" target-dir="libs/armeabi" />
+    <source-file src="src/android/libs/armeabi/libtpnsWatchdog.so" target-dir="libs/armeabi" />
+
+  </platform>
 
 </plugin>
