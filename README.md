@@ -6,13 +6,23 @@
 
 ## 安装方法
 
-在 Cordova 项目目录中键入：
+打开控制台，进入 Cordova 项目目录，输入：
 
 ```bash
 cordova plugin add https://github.com/gengen1988/XGPush \
   --variable ACCESS_ID="Your Access ID" \
   --variable ACCESS_KEY="Your Access Key"
 ```
+
+如果使用 Crosswalk，则使用 plugman 安装：
+
+```bash
+plugman install --platform android --project "Your Project Directory" \
+  --plugin https://github.com/gengen1988/XGPush \
+  --variable ACCESS_ID="Your Access ID" \
+  --variable ACCESS_KEY="Your Access Key"
+```
+
 
 ## 注意事项
 ### 不同平台SO文件
