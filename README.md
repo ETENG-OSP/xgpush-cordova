@@ -6,8 +6,12 @@
 
 ## 安装方法
 
+在 Cordova 项目目录中键入：
+
 ```bash
-cordova plugin add https://github.com/gengen1988/XGPush --variable ACCESS_ID="Your Access ID" --variable ACCESS_KEY="Your Access Key"
+cordova plugin add https://github.com/gengen1988/XGPush \
+  --variable ACCESS_ID="Your Access ID" \
+  --variable ACCESS_KEY="Your Access Key"
 ```
 
 ## 注意事项
