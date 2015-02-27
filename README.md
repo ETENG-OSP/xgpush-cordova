@@ -23,6 +23,27 @@ plugman install --platform android --project "Your Project Directory" \
   --variable ACCESS_KEY="Your Access Key"
 ```
 
+## 使用方法
+
+安装完成即可接收推送通知。
+
+如果需要为接收推送的设备取别名以便有针对性的通知，需要在 `deviceready` 注册别名：
+
+```javascript
+document.addEventListener('deviceready', function () {
+  xgpush.registerPush('alias');
+}, false);
+```
+
+如果需要处理推送的消息（不展示通知，直接在应用中处理推送来的数据），使用以下方法：
+
+```javascript
+document.addEventListener('deviceready', function () {
+  xgpush.registerPush('alias', function (title, content, customContent) {
+    // 一旦接到推送，该方法就会被回调
+  });
+}, false);
+```
 
 ## 注意事项
 ### 不同平台SO文件
