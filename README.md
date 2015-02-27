@@ -45,6 +45,13 @@ document.addEventListener('deviceready', function () {
 }, false);
 ```
 
+## 用例
+
+如果需要推送一条信息，用户在点击该信息后进入应用，同时触发程序逻辑。可以发送一个带有自定义 URL scheme 的通知。
+
+参考这个插件：https://github.com/EddyVerbruggen/Custom-URL-scheme
+
+
 ## 注意事项
 ### 不同平台 so 文件
 
