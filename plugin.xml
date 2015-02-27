@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns:android="http://schemas.android.com/apk/res/android"
   id="com.eteng.push.xgpush"
-  version="0.0.2">
+  version="0.1.0">
 
   <name>XGPush</name>
   <description>Tencent XGPush Plugin</description>
@@ -111,11 +111,10 @@
 
     </config-file>
 
-    <source-file src="src/android/DiskHeap.java" target-dir="src/com/eteng/push/xgpush" />
-    <source-file src="src/android/PushPlugin.java" target-dir="src/com/eteng/push/xgpush" />
-    <source-file src="src/android/XGPush.java" target-dir="src/com/eteng/push/xgpush" />
-    <source-file src="src/android/XGReceiver.java" target-dir="src/com/eteng/push/xgpush" />
+    <source-file src="src/android/v2/XgPushPlugin.java" target-dir="src/com/eteng/push/xgpush2" />
+    <source-file src="src/android/v2/XgPushReceiver.java" target-dir="src/com/eteng/push/xgpush2" />
 
+    <source-file src="src/android/libs/android-support-v4.jar" target-dir="libs" />
     <source-file src="src/android/libs/Xg_sdk_v2.37.jar" target-dir="libs" />
     <source-file src="src/android/libs/wup-1.0.0-SNAPSHOT.jar" target-dir="libs" />
     <source-file src="src/android/libs/mid-sdk-2.10.jar" target-dir="libs" />
