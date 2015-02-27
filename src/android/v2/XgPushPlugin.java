@@ -66,7 +66,7 @@ public class XgPushPlugin extends CordovaPlugin {
 	}
 	
 	private BroadcastReceiver registerReceiver(CallbackContext callback) {
-		BroadcastReceiver receiver = new XgPushReciever(callback);
+		BroadcastReceiver receiver = new XgPushReceiver(callback);
 		IntentFilter filter = new IntentFilter();
 		filter.addAction(Constants.ACTION_FEEDBACK);
 		filter.addAction(Constants.ACTION_PUSH_MESSAGE);

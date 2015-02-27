@@ -3,14 +3,14 @@
   id="com.eteng.push.xgpush"
   version="0.1.0">
 
-  <name>XGPush</name>
+  <name>xgpush-cordova</name>
   <description>Tencent XGPush Plugin</description>
   <license>MIT</license>
   <author>Gen Liu</author>
-  <keywords>cordova,push,chinese</keywords>
+  <keywords>cordova, push, chinese</keywords>
 
-  <repo>https://github.com/gengen1988/XGPush.git</repo>
-  <issue>https://github.com/gengen1988/XGPush/issues</issue>
+  <repo>https://github.com/gengen1988/xgpush-cordova.git</repo>
+  <issue>https://github.com/gengen1988/xgpush-cordova/issues</issue>
 
   <engines>
     <engine name="cordova" version=">3.0.0" />
