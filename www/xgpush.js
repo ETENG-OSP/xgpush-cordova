@@ -1,11 +1,11 @@
 /*
  * xpush cordova plugin
  * @author gg
- * @date 2014-03-21 
+ * @date 2014-03-21
  */
 var exec = require('cordova/exec');
 
-var SERVICE='XGPush';
+var SERVICE = 'XGPush';
 
 var ACTION_ENABLE_DEBUG = 'enable_debug';
 var ACTION_REGISTER_PUSH = 'register_push';
