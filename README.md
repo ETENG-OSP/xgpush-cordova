@@ -46,9 +46,11 @@ document.addEventListener('deviceready', function () {
 ```
 
 ## 注意事项
-### 不同平台SO文件
-请到 http://xg.qq.com/xg/help/ctr_help/download 下载对应版本的 SDK。
-以下引用SDK中的说明：
+### 不同平台 so 文件
+
+这个插件内置了 armeabi 的库文件。如果目标平台不是 armeabi，请到 http://xg.qq.com/xg/help/ctr_help/download 下载对应版本的 SDK。
+
+以下引用 SDK 中的说明：
 
 > 1. 信鸽的 .so 支持所有的 android 平台，但考虑到平时接入一般只需要 armeabi 平台，因此 libs 目录只提供该平台的 .so，其它平台可在上层目录的 All-Platform-SO 找到。
 >
