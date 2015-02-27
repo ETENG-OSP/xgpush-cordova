@@ -27,11 +27,13 @@ plugman install --platform android --project "Your Project Directory" \
 
 安装完成即可接收推送通知。
 
-如果需要为接收推送的设备取别名以便有针对性的通知，需要在 `deviceready` 注册别名：
+如果需要为接收推送的设备取别名以便有针对性的通知，需要在 `deviceready` 后注册别名：
 
 ```javascript
 document.addEventListener('deviceready', function () {
+
   xgpush.registerPush('alias');
+  
 }, false);
 ```
 
@@ -39,9 +41,11 @@ document.addEventListener('deviceready', function () {
 
 ```javascript
 document.addEventListener('deviceready', function () {
+
   xgpush.registerPush('alias', function (title, content, customContent) {
     // 一旦接到推送，该方法就会被回调
   });
+  
 }, false);
 ```
 
