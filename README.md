@@ -1,6 +1,7 @@
 # XGPush 腾讯信鸽推送 for Cordova
 
 腾讯信鸽推送服务：http://xg.qq.com/
+
 信鸽 SDK 版本：2.37
 
 这个插件支持通知与消息，同时针对混合应用的生命周期进行了处理，保证消息的抵达。
@@ -10,7 +11,7 @@
 打开控制台，进入 Cordova 项目目录，输入：
 
 ```bash
-cordova plugin add https://github.com/gengen1988/XGPush \
+cordova plugin add https://github.com/gengen1988/XGPush --save \
   --variable ACCESS_ID="Your Access ID" \
   --variable ACCESS_KEY="Your Access Key"
 ```
