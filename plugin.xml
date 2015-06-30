@@ -71,17 +71,28 @@
           <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
           <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
           <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
-           -->
+          -->
         </intent-filter>
+        <!-- 【可选】 usb相关的系统广播，增强信鸽service的复活机会，请根据需要添加 -->
+        <!--
+        <intent-filter android:priority="0x7fffffff" >
+            <action android:name="android.intent.action.MEDIA_UNMOUNTED" />
+            <action android:name="android.intent.action.MEDIA_REMOVED" />
+            <action android:name="android.intent.action.MEDIA_CHECKING" />
+            <action android:name="android.intent.action.MEDIA_EJECT" />
+            <data android:scheme="file" />
+        </intent-filter>
+        -->
       </receiver>
 
       <!-- 【必须】 (2.30及以上版新增)展示通知的activity -->
       <!-- 【注意】 如果被打开的activity是启动模式为SingleTop，SingleTask或SingleInstance，请根据通知的异常自查列表第8点处理-->
       <activity android:name="com.tencent.android.tpush.XGPushActivity"
-        android:exported="true" >
+        android:theme="@android:style/Theme.Translucent"
+        android:exported="false" >
         <intent-filter>
           <!-- 若使用AndroidStudio，请设置android:name="android.intent.action"-->
-          <action android:name="android.intent.action" />
+          <action android:name="" />
         </intent-filter>
       </activity>
 
@@ -115,9 +126,9 @@
     <source-file src="src/android/v2/XgPushReceiver.java" target-dir="src/com/eteng/push/xgpush2" />
 
     <source-file src="src/android/libs/android-support-v4.jar" target-dir="libs" />
-    <source-file src="src/android/libs/Xg_sdk_v2.37.jar" target-dir="libs" />
-    <source-file src="src/android/libs/wup-1.0.0-SNAPSHOT.jar" target-dir="libs" />
-    <source-file src="src/android/libs/mid-sdk-2.10.jar" target-dir="libs" />
+    <source-file src="src/android/libs/jg_filter_sdk_1.1.jar" target-dir="libs" />
+    <source-file src="src/android/libs/Xg_sdk_v2.40_20150616_1030" target-dir="libs" />
+    <source-file src="src/android/libs/wup-1.0.0.E-SNAPSHOT.jar" target-dir="libs" />
 
     <source-file src="src/android/libs/armeabi/libtpnsSecurity.so" target-dir="libs/armeabi" />
     <source-file src="src/android/libs/armeabi/libtpnsWatchdog.so" target-dir="libs/armeabi" />
