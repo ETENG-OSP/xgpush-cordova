@@ -140,6 +140,8 @@
 
     <source-file src="src/android/libs/armeabi/libtpnsSecurity.so" target-dir="libs/armeabi" />
     <source-file src="src/android/libs/armeabi/libtpnsWatchdog.so" target-dir="libs/armeabi" />
+		<source-file src="Other-Platform-SO/armeabi-v7a/libtpnsSecurity.so" target-dir="libs/armeabi-v7a" />
+    <source-file src="Other-Platform-SO/armeabi-v7a/libtpnsWatchdog.so" target-dir="libs/armeabi-v7a" />
 
   </platform>
 
