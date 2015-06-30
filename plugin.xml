@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns:android="http://schemas.android.com/apk/res/android"
   id="com.eteng.push.xgpush"
-  version="0.1.0">
+  version="0.1.2">
 
   <name>xgpush-cordova</name>
   <description>Tencent XGPush Plugin</description>
@@ -20,11 +20,18 @@
   <preference name="ACCESS_KEY" />
 
   <js-module name="XGPush" src="www/xgpush.js">
-    <clobbers target="XGPush" />
+    <clobbers target="window.xgpush" />
   </js-module>
 
   <!-- android -->
   <platform name="android" >
+
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="XGPush">
+        <param name="android-package" value="com.eteng.push.xgpush2.XGPushPlugin" />
+        <param name="onload" value="true" />
+      </feature>
+    </config-file>
 
     <config-file target="AndroidManifest.xml" parent="/manifest">
 
