@@ -92,7 +92,7 @@
         android:exported="false" >
         <intent-filter>
           <!-- 若使用AndroidStudio，请设置android:name="android.intent.action"-->
-          <action android:name="" />
+          <action android:name="android.intent.action" />
         </intent-filter>
       </activity>
 
@@ -127,7 +127,7 @@
 
     <source-file src="src/android/libs/android-support-v4.jar" target-dir="libs" />
     <source-file src="src/android/libs/jg_filter_sdk_1.1.jar" target-dir="libs" />
-    <source-file src="src/android/libs/Xg_sdk_v2.40_20150616_1030" target-dir="libs" />
+    <source-file src="src/android/libs/Xg_sdk_v2.40_20150616_1030.jar" target-dir="libs" />
     <source-file src="src/android/libs/wup-1.0.0.E-SNAPSHOT.jar" target-dir="libs" />
 
     <source-file src="src/android/libs/armeabi/libtpnsSecurity.so" target-dir="libs/armeabi" />
