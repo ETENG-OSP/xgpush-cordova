@@ -2,9 +2,9 @@
 
 腾讯信鸽推送服务：http://xg.qq.com/
 
-信鸽 SDK 版本：2.37
+信鸽 SDK 版本：2.40
 
-Cordova 版本：3.x / 4.x （没试过 Cordova 5.x）
+Cordova 版本：3.x / 4.x / 5.x
 
 这个插件支持通知与消息，同时针对混合应用的生命周期进行了处理，保证消息的抵达。
 
@@ -13,7 +13,7 @@ Cordova 版本：3.x / 4.x （没试过 Cordova 5.x）
 打开控制台，进入 Cordova 项目目录，输入：
 
 ```bash
-cordova plugin add https://github.com/gengen1988/XGPush --save \
+cordova plugin add https://github.com/gengen1988/xgpush-cordova --save \
   --variable ACCESS_ID="Your Access ID" \
   --variable ACCESS_KEY="Your Access Key"
 ```
@@ -22,7 +22,7 @@ cordova plugin add https://github.com/gengen1988/XGPush --save \
 
 ```bash
 plugman install --platform android --project "Your Project Directory" \
-  --plugin https://github.com/gengen1988/XGPush \
+  --plugin https://github.com/gengen1988/xgpush-cordova \
   --variable ACCESS_ID="Your Access ID" \
   --variable ACCESS_KEY="Your Access Key"
 ```
@@ -33,23 +33,23 @@ plugman install --platform android --project "Your Project Directory" \
 
 如果需要为接收推送的设备取别名以便有针对性的通知，需要在 `deviceready` 后注册别名：
 
-```javascript
-document.addEventListener('deviceready', function () {
+```js
+document.addEventListener('deviceready', function() {
 
   xgpush.registerPush('alias');
-  
+
 }, false);
 ```
 
 如果需要处理推送的消息（不展示通知，直接在应用中处理推送来的数据），使用以下方法：
 
-```javascript
-document.addEventListener('deviceready', function () {
+```js
+document.addEventListener('deviceready', function() {
 
-  xgpush.registerPush('alias', function (title, content, customContent) {
+  xgpush.registerPush('alias', function(title, content, customContent) {
     // 一旦接到推送，该方法就会被回调
   });
-  
+
 }, false);
 ```
 
@@ -77,7 +77,7 @@ document.addEventListener('deviceready', function () {
 >   2. 当前工程已有某些平台的 so，如只有 armeabi 平台，却添加信鸽所有平台导致打包时异常。
 >
 >     解决办法：只添加当前工程已有的平台的信鸽 so 文件。具体可参考网上或以下示例：
->     
+>
 >     ```
 >     armeabi	   ！此平台既有当前存在so又有信鸽，正常！
 >       --libCurrent.so			当前工程已有so
