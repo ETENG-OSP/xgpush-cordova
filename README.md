@@ -46,7 +46,7 @@ document.addEventListener('deviceready', function() {
 
 ### xgpush.unregisterPush()
 
-取消注册
+注销
 
 ## 用例
 
