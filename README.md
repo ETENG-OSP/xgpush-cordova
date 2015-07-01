@@ -34,16 +34,19 @@ document.addEventListener('deviceready', function() {
 
 ## API
 
-### xgpush.registerPush(\<alias\>, \<successCallback\>, \<errorCallback\>);
+### xgpush.registerPush([alias], [successCallback], [errorCallback])
 
 注册设备
 
 参数：
 
-* __{string} alias__：设备别名，可选
-* __{Function} successCallback__：成功后的回调，可选
-* __{Function} errorCallback__：失败后的回调，可选
+* __alias__: 设备别名，可选 (String)
+* __successCallback__: 成功后的回调，可选 (Function)
+* __errorCallback__: 失败后的回调，可选 (Function)
 
+### xgpush.unregisterPush()
+
+取消注册
 
 ## 用例
 
