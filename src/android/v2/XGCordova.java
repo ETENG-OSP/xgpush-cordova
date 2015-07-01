@@ -6,16 +6,22 @@ import com.tencent.android.tpush.XGIOperateCallback;
 import com.tencent.android.tpush.XGPushManager;
 
 import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
 
 public class XGCordova extends XGPushPlugin {
+	
+  private static final String TAG = "XGCordovaPlugin";
 
   @Override
   protected boolean registerPush(Context context, String alias, CallbackContext callback) {
-    // Log.d(TAG, "> register: " + alias);
+    Log.d(TAG, "> register: " + alias);
     XGIOperateCallback reply = new XGCordovaOperateCallback(callback);
-    if (alias != null && !alias.trim().isEmpty()) {
+    if (TextUtils.isEmpty(alias)) {
+      Log.d(TAG, "> register public");
       XGPushManager.registerPush(context, reply);
     } else {
+      Log.d(TAG, "> register private");
       XGPushManager.registerPush(context, alias, reply);
     }
 

@@ -130,7 +130,7 @@
     </config-file>
 
     <source-file src="src/android/v2/XGPushPlugin.java" target-dir="src/com/eteng/push/xgpush2" />
-    <source-file src="src/android/v2/XGPushReceiver.java" target-dir="src/com/eteng/push/xgpush2" />
+    <source-file src="src/android/v2/XGCordovaPushReceiver.java" target-dir="src/com/eteng/push/xgpush2" />
     <source-file src="src/android/v2/XGCordovaOperateCallback.java" target-dir="src/com/eteng/push/xgpush2" />
     <source-file src="src/android/v2/XGCordova.java" target-dir="src/com/eteng/push/xgpush2" />
 
