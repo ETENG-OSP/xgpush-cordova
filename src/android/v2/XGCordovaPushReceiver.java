@@ -13,11 +13,11 @@ import com.tencent.android.tpush.XGPushRegisterResult;
 import com.tencent.android.tpush.XGPushShowedResult;
 import com.tencent.android.tpush.XGPushTextMessage;
 
-public class XGPushReceiver extends XGPushBaseReceiver {
+public class XGCordovaPushReceiver extends XGPushBaseReceiver {
 
   private CallbackContext callback;
 
-  public XGPushReceiver(CallbackContext callback) {
+  public XGCordovaPushReceiver(CallbackContext callback) {
     this.callback = callback;
   }
 

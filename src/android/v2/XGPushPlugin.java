@@ -10,65 +10,63 @@ import org.apache.cordova.CordovaWebView;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import com.tencent.android.tpush.XGPushManager;
+import com.tencent.android.tpush.XGPushConstants;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.util.Log;
 
-public class XGPushPlugin extends CordovaPlugin {
+public abstract class XGPushPlugin extends CordovaPlugin {
 
-  private static final String ACTION_REGISTER_PUSH = "register_push";
-  private static final String ACTION_REGISTER_ACCOUNT = "register_account";
-  private static final String ACTION_UNREGISTER_PUSH = "unregister";
+  private static final String TAG = "XGCordovaPlugin";
+  private static final String ACTION_REGISTER_PUSH = "registerpush";
+  private static final String ACTION_UNREGISTER_PUSH = "unregisterpush";
+  private Integer idGenerator = 0;
+  protected Map<Integer, BroadcastReceiver> receivers = new HashMap<Integer, BroadcastReceiver>();
 
-  Map<String, BroadcastReceiver> receivers = new HashMap<String, BroadcastReceiver>();
+  abstract protected boolean registerPush(Context context, String alias, CallbackContext callback);
+  abstract protected boolean unregisterPush(Context context, CallbackContext callback);
 
   @Override
   public void initialize(CordovaInterface cordova, CordovaWebView webView) {
     super.initialize(cordova, webView);
-    // log
-    // XGPushConfig.enableDebug(cordova.getActivity(), true);
-
     // initialize
     Context context = cordova.getActivity().getApplicationContext();
-    XGPushManager.registerPush(context);
+    // register(context);
+  }
+
+  protected Integer registerReceiver(Context context, CallbackContext callback) {
+    int id = idGenerator++;
+    BroadcastReceiver receiver = new XGCordovaPushReceiver(callback);
+    IntentFilter filter = new IntentFilter();
+    filter.addAction(XGPushConstants.ACTION_PUSH_MESSAGE);
+    filter.addAction(XGPushConstants.ACTION_FEEDBACK);
+    context.registerReceiver(receiver, filter);
+    receivers.put(id, receiver);
+    return id;
+  }
+
+  protected void unregisterReceiver(Context context, Integer id) {
+    BroadcastReceiver receiver = receivers.remove(id);
+    context.unregisterReceiver(receiver);
   }
 
   @Override
   public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+    Log.d(TAG, "> plugin invoke");
+    Context context = cordova.getActivity().getApplicationContext();
     if (ACTION_REGISTER_PUSH.equals(action)) {
-      return registerPush(callbackContext);
-
-    } else if (ACTION_REGISTER_ACCOUNT.equals(action)) {
       String alias = args.getString(0);
-      return registerPush(alias, callbackContext);
+      return registerPush(context, alias, callbackContext);
 
     } else if (ACTION_UNREGISTER_PUSH.equals(action)) {
-      unregisterPush();
-      return true;
+      return unregisterPush(context, callbackContext);
 
     }
 
     return false;
-  }
-
-  private boolean unregisterPush() {
-    Context context = cordova.getActivity().getApplicationContext();
-    XGPushManager.unregisterPush(context);
-    return true;
-  }
-
-  private boolean registerPush(CallbackContext callback) {
-    Context context = cordova.getActivity().getApplicationContext();
-    XGPushManager.registerPush(context, new XGCordovaOperateCallback(callback));
-    return true;
-  }
-
-  private boolean registerPush(String account, CallbackContext callback) {
-    Context context = cordova.getActivity().getApplicationContext();
-    XGPushManager.registerPush(context, account, new XGCordovaOperateCallback(callback));
-    return true;
   }
 
   /**

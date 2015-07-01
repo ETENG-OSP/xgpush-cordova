@@ -28,7 +28,7 @@
 
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="XGPush">
-        <param name="android-package" value="com.eteng.push.xgpush2.XGPushPlugin" />
+        <param name="android-package" value="com.eteng.push.xgpush2.XGCordova" />
         <param name="onload" value="true" />
       </feature>
     </config-file>
@@ -132,6 +132,7 @@
     <source-file src="src/android/v2/XGPushPlugin.java" target-dir="src/com/eteng/push/xgpush2" />
     <source-file src="src/android/v2/XGPushReceiver.java" target-dir="src/com/eteng/push/xgpush2" />
     <source-file src="src/android/v2/XGCordovaOperateCallback.java" target-dir="src/com/eteng/push/xgpush2" />
+    <source-file src="src/android/v2/XGCordova.java" target-dir="src/com/eteng/push/xgpush2" />
 
     <source-file src="src/android/libs/android-support-v4.jar" target-dir="libs" />
     <source-file src="src/android/libs/jg_filter_sdk_1.1.jar" target-dir="libs" />
