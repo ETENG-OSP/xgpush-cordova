@@ -1,14 +1,6 @@
 var util = require('util');
 
 /**
- * bluebird 实现的 Promise
- *
- * @external Promise
- * @see {@link https://nodejs.org/api/events.html}
- */
-var Promise = require('bluebird');
-
-/**
  * Node.js 的事件类
  *
  * @external EventEmitter

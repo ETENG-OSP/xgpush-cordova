@@ -146,4 +146,6 @@
 
   </platform>
 
+  <dependency id="com.vladstirbu.cordova.promise" url="https://github.com/gengen1988/PromisesPlugin.git"></dependency>
+
 </plugin>
