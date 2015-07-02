@@ -18,15 +18,6 @@ cordova plugin add https://github.com/gengen1988/xgpush-cordova --save \
   --variable ACCESS_KEY="Your Access Key"
 ```
 
-如果使用 Crosswalk，则使用 plugman 安装：
-
-```bash
-plugman install --platform android --project "Your Project Directory" \
-  --plugin https://github.com/gengen1988/xgpush-cordova \
-  --variable ACCESS_ID="Your Access ID" \
-  --variable ACCESS_KEY="Your Access Key"
-```
-
 ## 使用方法
 
 安装完成即可接收推送通知。
@@ -41,17 +32,21 @@ document.addEventListener('deviceready', function() {
 }, false);
 ```
 
-如果需要处理推送的消息（不展示通知，直接在应用中处理推送来的数据），使用以下方法：
+## API
 
-```js
-document.addEventListener('deviceready', function() {
+### xgpush.registerPush([alias], [successCallback], [errorCallback])
 
-  xgpush.registerPush('alias', function(title, content, customContent) {
-    // 一旦接到推送，该方法就会被回调
-  });
+注册设备
 
-}, false);
-```
+参数：
+
+* __alias__: 设备别名，可选 (String)
+* __successCallback__: 成功后的回调，可选 (Function)
+* __errorCallback__: 失败后的回调，可选 (Function)
+
+### xgpush.unregisterPush()
+
+注销
 
 ## 用例
 
