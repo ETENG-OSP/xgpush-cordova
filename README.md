@@ -47,10 +47,10 @@ xgpush.registerPush('tom').then(function(results) {
 如果不想接收推送，使用 `xgpush.unregisterPush`：
 
 ```js
-xgpush.unregisterPush().then(function() {
-  // 注销结果
-})
+xgpush.unregisterPush()
 ```
+
+这个方法也返回 Promise。
 
 ### 事件：textmessage
 
@@ -63,7 +63,7 @@ xgpush.on('textmessage', function(e) {
 });
 ```
 
-事件采用了与 Node.js 事件兼容的 eventemitter3。具体方法参考 Node.js 文档。
+事件采用了与 Node.js 事件兼容的 eventemitter3。具体方法参考 Node.js 文档。https://nodejs.org/api/events.html
 
 ## 用例
 
