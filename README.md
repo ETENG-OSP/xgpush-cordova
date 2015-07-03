@@ -22,31 +22,48 @@ cordova plugin add https://github.com/gengen1988/xgpush-cordova --save \
 
 安装完成即可接收推送通知。
 
+### xgpush.registerPush([alias])
+
 如果需要为接收推送的设备取别名以便有针对性的通知，需要在 `deviceready` 后注册别名：
 
 ```js
-document.addEventListener('deviceready', function() {
-
-  xgpush.registerPush('alias');
-
-}, false);
+// 这里的别名是可选的，不传代表没用别名
+xgpush.registerPush('tom');
 ```
 
-## API
+如果需要结果，可以用 Promise 的形式获取：
 
-### xgpush.registerPush([alias], [successCallback], [errorCallback])
+```js
+xgpush.registerPush('tom').then(function(results) {
+  // results 里有 flag 和 data
+  alert('设备的 token 是: ' + results.data);
+});
+```
 
-注册设备
-
-参数：
-
-* __alias__: 设备别名，可选 (String)
-* __successCallback__: 成功后的回调，可选 (Function)
-* __errorCallback__: 失败后的回调，可选 (Function)
+可以重复注册，下一个别名会替换上一个别名。
 
 ### xgpush.unregisterPush()
 
-注销
+如果不想接收推送，使用 `xgpush.unregisterPush`：
+
+```js
+xgpush.unregisterPush().then(function() {
+  // 注销结果
+})
+```
+
+### 事件：textmessage
+
+如果需要接受消息，直接在代码里处理，可以监听 `textmessage` 事件：
+
+```js
+xgpush.on('textmessage', function(e) {
+  // 事件处理方法
+  alert(JSON.stringify(arguments, null, 2));
+});
+```
+
+事件采用了与 Node.js 事件兼容的 eventemitter3。具体方法参考 Node.js 文档。
 
 ## 用例
 
