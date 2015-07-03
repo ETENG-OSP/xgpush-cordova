@@ -51,9 +51,9 @@ public class XGCordovaPushReceiver extends XGPushBaseReceiver {
     } catch (JSONException e) {
       e.printStackTrace();
     }
-    PluginResult result = new PluginResult(PluginResult.Status.OK, data);
-    result.setKeepCallback(true);
-    this.callback.sendPluginResult(result);
+    PluginResult results = new PluginResult(PluginResult.Status.OK, data);
+    results.setKeepCallback(true);
+    this.callback.sendPluginResult(results);
   }
 
   @Override

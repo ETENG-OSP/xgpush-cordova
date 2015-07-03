@@ -16,13 +16,13 @@ public class XGCordovaOperateCallback implements XGIOperateCallback {
 
   @Override
   public void onFail(Object data, int errCode, String msg) {
-  JSONObject results = new JSONObject();
-  try {
-    results.put("data", data);
-    results.put("code", errCode);
-    results.put("message", msg);
-  } catch (JSONException e) {
-    e.printStackTrace();
+    JSONObject results = new JSONObject();
+    try {
+      results.put("data", data);
+      results.put("code", errCode);
+      results.put("message", msg);
+    } catch (JSONException e) {
+      e.printStackTrace();
     }
     this.callback.error(results);
   }
@@ -31,11 +31,11 @@ public class XGCordovaOperateCallback implements XGIOperateCallback {
   public void onSuccess(Object data, int flag) {
     JSONObject results = new JSONObject();
     try {
-    results.put("data", data);
-    results.put("flag", flag);
-  } catch (JSONException e) {
-    e.printStackTrace();
-  }
+      results.put("data", data);
+      results.put("flag", flag);
+    } catch (JSONException e) {
+      e.printStackTrace();
+    }
     this.callback.success(results);
   }
 

@@ -1,12 +1,10 @@
-var util = require('util');
-
 /**
  * Node.js 的事件类
  *
  * @external EventEmitter
  * @see {@link https://nodejs.org/api/events.html}
  */
-var EventEmitter = require('events').EventEmitter;
+var EventEmitter = require('eventemitter3');
 
 /**
  * 信鸽 Cordova 服务类，用于注册。
@@ -18,23 +16,21 @@ var EventEmitter = require('events').EventEmitter;
 function XGPush(exec) {
   EventEmitter.call(this);
   this.exec = exec;
-
-  exec(
-    this.eventCallback.bind(this),
-    this.eventError.bind(this),
-    XGPush.SERVICE, XGPush.ACTION_ADD_LISTENER,
-    []
+  this.registerPush();
+  this.registerReceiver(
+    this.eventSuccess.bind(this),
+    this.eventError.bind(this)
   );
 }
 
-util.inherits(XGPush, EventEmitter);
+XGPush.prototype = new EventEmitter();
 
 XGPush.SERVICE = 'XGPush';
 XGPush.ACTION_REGISTER_PUSH = 'registerpush';
 XGPush.ACTION_UNREGISTER_PUSH = 'unregisterpush';
 XGPush.ACTION_ADD_LISTENER = 'addlistener';
 
-XGPush.prototype.eventCallback = function(results) {
+XGPush.prototype.eventSuccess = function(results) {
   console.log('receive message:', results);
   this.emit('textmessage', results);
 };
@@ -42,6 +38,15 @@ XGPush.prototype.eventCallback = function(results) {
 XGPush.prototype.eventError = function(err) {
   console.log('receive error:', err);
   this.emit('error', err);
+};
+
+XGPush.prototype.registerReceiver = function(success, error) {
+  var exec = this.exec;
+  exec(
+    success, error,
+    XGPush.SERVICE, XGPush.ACTION_ADD_LISTENER,
+    []
+  );
 };
 
 /**

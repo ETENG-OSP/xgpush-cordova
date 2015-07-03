@@ -9,7 +9,7 @@ import android.content.Context;
 import android.content.IntentFilter;
 
 public class ReceiverManager {
-	
+
   protected boolean registerReceiver(Context context, CallbackContext callback) {
     BroadcastReceiver receiver = new XGCordovaPushReceiver(callback);
     IntentFilter filter = new IntentFilter();
