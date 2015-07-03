@@ -18,6 +18,13 @@ var EventEmitter = require('events').EventEmitter;
 function XGPush(exec) {
   EventEmitter.call(this);
   this.exec = exec;
+
+  exec(
+    this.eventCallback.bind(this),
+    this.eventError.bind(this),
+    XGPush.SERVICE, XGPush.ACTION_ADD_LISTENER,
+    []
+  );
 }
 
 util.inherits(XGPush, EventEmitter);
@@ -26,7 +33,16 @@ XGPush.SERVICE = 'XGPush';
 XGPush.ACTION_REGISTER_PUSH = 'registerpush';
 XGPush.ACTION_UNREGISTER_PUSH = 'unregisterpush';
 XGPush.ACTION_ADD_LISTENER = 'addlistener';
-XGPush.ACTION_REMOVE_LISTENER = 'removelistener';
+
+XGPush.prototype.eventCallback = function(results) {
+  console.log('receive message:', results);
+  this.emit('textmessage', results);
+};
+
+XGPush.prototype.eventError = function(err) {
+  console.log('receive error:', err);
+  this.emit('error', err);
+};
 
 /**
  * 与信鸽服务注册。注册的时候可以填别名，按照别名发送时，只有经过注册的别名才会收到推送。
@@ -55,7 +71,11 @@ XGPush.ACTION_REMOVE_LISTENER = 'removelistener';
 XGPush.prototype.registerPush = function(alias) {
   var exec = this.exec;
   return new Promise(function(resolve, reject) {
-    exec(resolve, reject, XGPush.SERVICE, XGPush.ACTION_REGISTER_PUSH, [alias]);
+    exec(
+      resolve, reject,
+      XGPush.SERVICE, XGPush.ACTION_REGISTER_PUSH,
+      [alias]
+    );
   });
 };
 
@@ -67,7 +87,10 @@ XGPush.prototype.registerPush = function(alias) {
 XGPush.prototype.unregisterPush = function() {
   var exec = this.exec;
   return new Promise(function(resolve, reject) {
-    exec(resolve, reject, XGPush.SERVICE, XGPush.ACTION_UNREGISTER_PUSH, []);
+    exec(
+      resolve, reject,
+      XGPush.SERVICE, XGPush.ACTION_UNREGISTER_PUSH,
+    []);
   });
 };
 

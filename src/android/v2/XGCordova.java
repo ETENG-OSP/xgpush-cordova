@@ -12,6 +12,7 @@ import android.util.Log;
 public class XGCordova extends XGPushPlugin {
 	
   private static final String TAG = "XGCordovaPlugin";
+  private ReceiverManager manager = new ReceiverManager();
 
   @Override
   protected boolean registerPush(Context context, String alias, CallbackContext callback) {
@@ -33,6 +34,11 @@ public class XGCordova extends XGPushPlugin {
     XGIOperateCallback reply = new XGCordovaOperateCallback(callback);
     XGPushManager.unregisterPush(context, reply);
     return true;
+  }
+
+  @Override
+  protected boolean addListener(Context context, CallbackContext callback) {
+	return manager.registerReceiver(context, callback);
   }
 
 }
