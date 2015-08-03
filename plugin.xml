@@ -147,6 +147,6 @@
 
   </platform>
 
-  <dependency id="com.vladstirbu.cordova.promise" url="https://github.com/vstirbu/PromisesPlugin.git"></dependency>
+  <dependency id="es6-promise-plugin" url="https://github.com/vstirbu/PromisesPlugin.git"></dependency>
 
 </plugin>
