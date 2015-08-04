@@ -1,5 +1,7 @@
 # XGPush 腾讯信鸽推送 for Cordova
 
+［新功能］支持 iOS！（已经开发完成，重构中）
+
 腾讯信鸽推送服务：http://xg.qq.com/
 
 信鸽 SDK 版本：2.40
