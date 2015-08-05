@@ -4,65 +4,75 @@
 
 @implementation CDVXGPushUtil
 
-+ (void) handleLaunching:(NSDictionary*)launchOptions
-{
-  NSLog(@"[XGPush] handle launching");
-  // 推送反馈回调版本示例
-  void (^successBlock)(void) = ^(void)
-  {
-    // 成功之后的处理
-    NSLog(@"[XGPush]handleLaunching's successBlock");
-  };
-
-  void (^errorBlock)(void) = ^(void)
-  {
-    // 失败之后的处理
-    NSLog(@"[XGPush]handleLaunching's errorBlock");
-  };
-
-  [XGPush handleLaunching:launchOptions successCallback:successBlock errorCallback:errorBlock];
-}
-
-+ (void) initForReregister
-{
+/**
+ * 注册通知
+ */
+- (void) initForReregister {
   NSLog(@"[XGPush] init for re-register");
-  void (^successCallback)(void) = ^(void)
-  {
+  [XGPush initForReregister:^{
     // 如果变成需要注册状态
-    if (![XGPush isUnRegisterStatus])
-    {
+    if (![XGPush isUnRegisterStatus]) {
       [CDVRegisterNotification registerNotification];
     }
-  };
-
-  [XGPush initForReregister:successCallback];
-}
-
-+ (void) startApp
-{
-  uint32_t accessID = [CDVXGPushUtil getAccessID];
-  NSString* accessKey = [CDVXGPushUtil getAccessKey];
-  NSLog(@"[XGPush] starting with access id: %u, access key: %@", accessID, accessKey);
-  [XGPush startApp:accessID appKey:accessKey];
-}
-
-+ (void) registerDevice:(NSData*)deviceToken {
-  [XGPush registerDevice:deviceToken];
+  }];
+  return self;
 }
 
 /**
- * get xgpush access id
+ * 启动 xgpush
  */
-+ (uint32_t) getAccessID
-{
+- (void) startApp {
+  uint32_t accessID = [self getAccessID];
+  NSString* accessKey = [self getAccessKey];
+  NSLog(@"[XGPush] starting with access id: %u, access key: %@", accessID, accessKey);
+  [XGPush startApp:accessID appKey:accessKey];
+  return self;
+}
+
+/**
+ * 记录 device token
+ *
+ * @param  {NSData*} deviceToken [description]
+ * @return {[type]}              [description]
+ */
+- (void) registerDevice:(NSData*)deviceToken {
+  NSLog(@"[XGPush] register with token:%@", deviceToken);
+  self.deviceToken = deviceToken;
+  return self;
+}
+
+/**
+ * 注册 xgpush
+ *
+ * @param  {[type]} void [description]
+ * @return {[type]}      [description]
+ */
+- (void) registerPush:(NSString*)alias successCallback:(void (^)(void))success errorCallback:(void (^)(void))error {
+  NSLog(@"[XGPush] register with token:%@ alias:%@", self.deviceToken, alias);
+  if ([alias respondsToSelector:@selector(length)] && [alias length] > 0) {
+    NSLog(@"[XGPush] setting alias:%@", alias);
+    [XGPush setAccount:alias];
+  }
+  [XGPush registerDevice:self.deviceToken successCallback:success errorCallback:error];
+}
+
+/**
+ * 获取 access id
+ *
+ * @param  {[type]} uint32_t [description]
+ * @return {[type]}          [description]
+ */
+- (uint32_t) getAccessID {
   return [[[[NSBundle mainBundle] objectForInfoDictionaryKey:@"XGPushMeta"] valueForKey:@"AccessID"] intValue];
 }
 
 /**
- * get xgpush access key
+ * 获取 access key
+ *
+ * @param  {[type]} NSString* [description]
+ * @return {[type]}           [description]
  */
-+ (NSString*) getAccessKey
-{
+- (NSString*) getAccessKey {
   return [[[NSBundle mainBundle] objectForInfoDictionaryKey:@"XGPushMeta"] valueForKey:@"AccessKey"];
 }
 

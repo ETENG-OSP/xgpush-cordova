@@ -151,8 +151,9 @@
   <platform name="ios">
 
     <config-file target="config.xml" parent="/*">
-      <feature name="Echo">
-        <param name="ios-package" value="CDVEcho"/>
+      <feature name="XGPush">
+        <param name="ios-package" value="CDVXGPushPlugin"/>
+        <param name="onload" value="true"/>
       </feature>
     </config-file>
 

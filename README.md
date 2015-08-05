@@ -2,8 +2,6 @@
 
 腾讯信鸽推送服务：http://xg.qq.com/
 
-［新功能］支持 iOS！
-
 信鸽 Android SDK 版本：2.40
 
 信鸽 iOS SDK 版本：2.4.0

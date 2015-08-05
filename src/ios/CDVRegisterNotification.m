@@ -1,11 +1,3 @@
-//
-//  CDVRegisterPush.m
-//  HelloCordova
-//
-//  Created by Gen Liu on 8/4/15.
-//
-//
-
 #import "CDVRegisterNotification.h"
 
 @implementation CDVRegisterNotification
