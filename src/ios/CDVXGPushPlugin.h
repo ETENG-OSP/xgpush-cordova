@@ -8,6 +8,10 @@
 - (void) didFailToRegisterForRemoteNotificationsWithError:(NSNotification*)notification;
 - (void) didReceiveRemoteNotification:(NSNotification*)notification;
 
+- (void) registerpush:(CDVInvokedUrlCommand*)command;
+- (void) unregisterpush:(CDVInvokedUrlCommand*)command;
+- (void) addlistener:(CDVInvokedUrlCommand*)command;
+
 @property CDVXGPushUtil* util;
 @property NSMutableArray* callbackIds;
 

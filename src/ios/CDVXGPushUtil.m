@@ -15,7 +15,6 @@
       [CDVRegisterNotification registerNotification];
     }
   }];
-  return self;
 }
 
 /**
@@ -26,7 +25,6 @@
   NSString* accessKey = [self getAccessKey];
   NSLog(@"[XGPush] starting with access id: %u, access key: %@", accessID, accessKey);
   [XGPush startApp:accessID appKey:accessKey];
-  return self;
 }
 
 /**
@@ -38,7 +36,6 @@
 - (void) registerDevice:(NSData*)deviceToken {
   NSLog(@"[XGPush] register with token:%@", deviceToken);
   self.deviceToken = deviceToken;
-  return self;
 }
 
 /**
@@ -47,13 +44,21 @@
  * @param  {[type]} void [description]
  * @return {[type]}      [description]
  */
-- (void) registerPush:(NSString*)alias successCallback:(void (^)(void))success errorCallback:(void (^)(void))error {
+- (void) registerPush:(NSString*)alias successCallback:(CallbackBlock)success errorCallback:(CallbackBlock)error {
   NSLog(@"[XGPush] register with token:%@ alias:%@", self.deviceToken, alias);
   if ([alias respondsToSelector:@selector(length)] && [alias length] > 0) {
     NSLog(@"[XGPush] setting alias:%@", alias);
     [XGPush setAccount:alias];
   }
+
   [XGPush registerDevice:self.deviceToken successCallback:success errorCallback:error];
+}
+
+/**
+ * 停止接收
+ */
+- (void)unregisterPush:(CallbackBlock)success errorCallback:(CallbackBlock)error {
+  [XGPush unRegisterDevice:success errorCallback:error];
 }
 
 /**
