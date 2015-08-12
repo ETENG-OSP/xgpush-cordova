@@ -77,6 +77,14 @@ xgpush.on('textmessage', function(e) {
 
 
 ## 注意事项
+
+### armv7s 与 xcode 6
+
+如果执行 `cordova build --device --release` 不成功，请去掉 `build.js` 里的 armv7s。
+
+参考：
+https://issues.apache.org/jira/browse/CB-8788
+
 ### 不同平台 so 文件
 
 这个插件内置了 armeabi 的库文件。如果目标平台不是 armeabi，请到 http://xg.qq.com/xg/help/ctr_help/download 下载对应版本的 SDK。
