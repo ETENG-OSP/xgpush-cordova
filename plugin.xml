@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns:android="http://schemas.android.com/apk/res/android"
-  id="com.eteng.push.xgpush"
-  version="0.1.4">
+  id="cordova-plugin-xgpush"
+  version="0.2.0">
 
   <name>xgpush-cordova</name>
   <description>Tencent XGPush Plugin</description>
@@ -145,6 +145,53 @@
     <source-file src="src/android/libs/armeabi/libtpnsWatchdog.so" target-dir="libs/armeabi" />
 		<source-file src="Other-Platform-SO/armeabi-v7a/libtpnsSecurity.so" target-dir="libs/armeabi-v7a" />
     <source-file src="Other-Platform-SO/armeabi-v7a/libtpnsWatchdog.so" target-dir="libs/armeabi-v7a" />
+
+  </platform>
+
+  <!-- ios -->
+  <platform name="ios">
+
+    <config-file target="config.xml" parent="/*">
+      <feature name="XGPush">
+        <param name="ios-package" value="CDVXGPushPlugin"/>
+        <param name="onload" value="true"/>
+      </feature>
+    </config-file>
+
+    <config-file target="*-Info.plist" parent="XGPushMeta">
+      <dict>
+        <key>AccessID</key>
+        <integer>$ACCESS_ID</integer>
+        <key>AccessKey</key>
+        <string>$ACCESS_KEY</string>
+      </dict>
+    </config-file>
+
+    <!-- Tencent XGPush SDK -->
+    <header-file src="src/ios/2.4.0/XGPush.h" />
+    <header-file src="src/ios/2.4.0/XGSetting.h" />
+    <source-file src="src/ios/2.4.0/libXG-SDK.a" framework="true" />
+
+    <!-- Cordova Plugin -->
+    <header-file src="src/ios/AppDelegate+CDVXGPush.h" />
+    <source-file src="src/ios/AppDelegate+CDVXGPush.m" />
+
+    <header-file src="src/ios/CDVXGPushPlugin.h" />
+    <source-file src="src/ios/CDVXGPushPlugin.m" />
+
+    <header-file src="src/ios/CDVXGPushUtil.h" />
+    <source-file src="src/ios/CDVXGPushUtil.m" />
+
+    <header-file src="src/ios/CDVRegisterNotification.h" />
+    <source-file src="src/ios/CDVRegisterNotification.m" />
+
+    <!-- Dependencies -->
+    <framework src="libz.dylib" />
+    <framework src="libsqlite3.dylib" />
+    <framework src="CFNetwork.framework" />
+    <framework src="SystemConfiguration.framework" />
+    <framework src="CoreTelephony.framework" />
+    <framework src="Security.framework" />
 
   </platform>
 

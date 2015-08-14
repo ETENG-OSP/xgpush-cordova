@@ -1,8 +1,12 @@
 # XGPush 腾讯信鸽推送 for Cordova
 
+［新功能］支持 iOS！（请参考信鸽官方的教程进行证书配置）
+
 腾讯信鸽推送服务：http://xg.qq.com/
 
-信鸽 SDK 版本：2.40
+信鸽 Android SDK 版本：2.40
+
+信鸽 iOS SDK 版本：2.4.0
 
 Cordova 版本：3.x / 4.x / 5.x
 
@@ -73,6 +77,14 @@ xgpush.on('textmessage', function(e) {
 
 
 ## 注意事项
+
+### armv7s 与 xcode 6
+
+如果执行 `cordova build --device --release` 不成功，请去掉 `build.js` 里的 armv7s。
+
+参考：
+https://issues.apache.org/jira/browse/CB-8788
+
 ### 不同平台 so 文件
 
 这个插件内置了 armeabi 的库文件。如果目标平台不是 armeabi，请到 http://xg.qq.com/xg/help/ctr_help/download 下载对应版本的 SDK。

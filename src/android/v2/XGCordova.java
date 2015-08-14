@@ -10,7 +10,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 public class XGCordova extends XGPushPlugin {
-	
+
   private static final String TAG = "XGCordovaPlugin";
   private ReceiverManager manager = new ReceiverManager();
 
@@ -38,7 +38,7 @@ public class XGCordova extends XGPushPlugin {
 
   @Override
   protected boolean addListener(Context context, CallbackContext callback) {
-	return manager.registerReceiver(context, callback);
+    return manager.registerReceiver(context, callback);
   }
 
 }
