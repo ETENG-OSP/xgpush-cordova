@@ -1,12 +1,13 @@
 # XGPush 腾讯信鸽推送 for Cordova
 
-［新功能］支持 iOS！（请参考信鸽官方的教程进行证书配置）
+[151015] 庆祝 20 Stars，SDK 升级
+[151015] 内置 Promise Polyfill，修正 issue 10
 
 腾讯信鸽推送服务：http://xg.qq.com/
 
-信鸽 Android SDK 版本：2.40
+信鸽 Android SDK 版本：探索版 2.41
 
-信鸽 iOS SDK 版本：2.4.0
+信鸽 iOS SDK 版本：2.4.2
 
 Cordova 版本：3.x / 4.x / 5.x
 

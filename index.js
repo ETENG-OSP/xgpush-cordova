@@ -1,3 +1,7 @@
+if (!window.Promise) {
+  require('es6-promise').polyfill();
+}
+
 /**
  * Node.js 的事件类
  *

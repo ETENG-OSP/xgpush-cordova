@@ -4,7 +4,7 @@
   "description": "腾讯信鸽推送服务：http://xg.qq.com/",
   "main": "index.js",
   "dependencies": {
-    "bluebird": "^2.9.30",
+    "es6-promise": "^3.0.2",
     "eventemitter3": "^1.1.1"
   },
   "devDependencies": {},

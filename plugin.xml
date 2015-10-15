@@ -135,16 +135,16 @@
     <source-file src="src/android/v2/XGCordova.java" target-dir="src/com/eteng/push/xgpush2" />
     <source-file src="src/android/v2/ReceiverManager.java" target-dir="src/com/eteng/push/xgpush2" />
 
-    <!-- <framework src="com.android.support:support-v4:+" /> -->
-    <source-file src="src/android/libs/android-support-v4.jar" target-dir="libs" />
-    <source-file src="src/android/libs/jg_filter_sdk_1.1.jar" target-dir="libs" />
-    <source-file src="src/android/libs/Xg_sdk_v2.40_20150616_1030.jar" target-dir="libs" />
-    <source-file src="src/android/libs/wup-1.0.0.E-SNAPSHOT.jar" target-dir="libs" />
+    <!-- Tencent XGPush SDK -->
+    <source-file src="sdk/Xg-Push-SDK-Android-2.41/libs/android-support-v4.jar" target-dir="libs" />
+    <source-file src="sdk/Xg-Push-SDK-Android-2.41/libs/jg_filter_sdk_1.1.jar" target-dir="libs" />
+    <source-file src="sdk/Xg-Push-SDK-Android-2.41/libs/Xg_sdk_v2.41_20150915_1121.jar" target-dir="libs" />
+    <source-file src="sdk/Xg-Push-SDK-Android-2.41/libs/wup-1.0.0.E-SNAPSHOT.jar" target-dir="libs" />
 
-    <source-file src="src/android/libs/armeabi/libtpnsSecurity.so" target-dir="libs/armeabi" />
-    <source-file src="src/android/libs/armeabi/libtpnsWatchdog.so" target-dir="libs/armeabi" />
-		<source-file src="Other-Platform-SO/armeabi-v7a/libtpnsSecurity.so" target-dir="libs/armeabi-v7a" />
-    <source-file src="Other-Platform-SO/armeabi-v7a/libtpnsWatchdog.so" target-dir="libs/armeabi-v7a" />
+    <source-file src="sdk/Xg-Push-SDK-Android-2.41/Other-Platform-SO/armeabi/libtpnsSecurity.so" target-dir="libs/armeabi" />
+    <source-file src="sdk/Xg-Push-SDK-Android-2.41/Other-Platform-SO/armeabi/libtpnsWatchdog.so" target-dir="libs/armeabi" />
+		<source-file src="sdk/Xg-Push-SDK-Android-2.41/Other-Platform-SO/armeabi-v7a/libtpnsSecurity.so" target-dir="libs/armeabi-v7a" />
+    <source-file src="sdk/Xg-Push-SDK-Android-2.41/Other-Platform-SO/armeabi-v7a/libtpnsWatchdog.so" target-dir="libs/armeabi-v7a" />
 
   </platform>
 
@@ -168,9 +168,9 @@
     </config-file>
 
     <!-- Tencent XGPush SDK -->
-    <header-file src="src/ios/2.4.0/XGPush.h" />
-    <header-file src="src/ios/2.4.0/XGSetting.h" />
-    <source-file src="src/ios/2.4.0/libXG-SDK.a" framework="true" />
+    <header-file src="sdk/Xg-Push-SDK-iOS-2.4.2/demo/sdk/XGPush.h" />
+    <header-file src="sdk/Xg-Push-SDK-iOS-2.4.2/demo/sdk/XGSetting.h" />
+    <source-file src="sdk/Xg-Push-SDK-iOS-2.4.2/demo/sdk/libXG-SDK.a" framework="true" />
 
     <!-- Cordova Plugin -->
     <header-file src="src/ios/AppDelegate+CDVXGPush.h" />
@@ -194,7 +194,5 @@
     <framework src="Security.framework" />
 
   </platform>
-
-  <dependency id="es6-promise-plugin" url="https://github.com/vstirbu/PromisesPlugin.git"></dependency>
 
 </plugin>
