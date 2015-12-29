@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.8.2
+Created-By: 1.7.0_03-b05 (Oracle Corporation)
+BuildTime: 2013-05-13 10:53:12
+

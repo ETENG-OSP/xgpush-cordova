@@ -1,0 +1,23 @@
+<resources>
+
+    <string name="app_name">信鸽Demo</string>
+    <string name="action_search">搜索</string>
+    <string name="action_device_token">设备Token</string>
+    <string name="action_help_center">帮助中心</string>
+    <string name="action_about_us">关于信鸽</string>
+    <string name="device_title">您的设备Token为：</string>
+    <string name="device_hint">已成功上传至网页端测试设备页面</string>
+    <string name="action_clear">清除已收到通知</string>
+    <string name="action_setting">功能设置</string>
+    <string name="action_diagnosis">一键诊断</string>
+    <string name="version">信鸽Demo 2.3.5</string>
+    <string name="register">启动&amp;注册</string>
+    <string name="unregister">反注册</string>
+    <string name="tag">设置标签</string>
+    <string name="registerAccount">启动&amp;注册（绑定账号）</string>
+    <string name="delTag">删除标签</string>
+    <string name="clearCache">清除本地缓存</string>
+    <string name="copyToken">复制Token</string>
+    <string name="device">您的设备Token为：</string>
+    <string name="action_back">返回上级</string>
+</resources>
