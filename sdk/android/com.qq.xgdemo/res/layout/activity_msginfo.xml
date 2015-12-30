@@ -1,0 +1,118 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/white" >
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/qq_dimen_96px"
+        android:background="@android:color/black" >
+
+        <View
+            android:id="@+id/arrow"
+            android:layout_width="@dimen/qq_dimen_27px"
+            android:layout_height="@dimen/qq_dimen_30px"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/qq_dimen_30px"
+            android:background="@drawable/fuxk_back" />
+
+        <View
+            android:id="@+id/img"
+            android:layout_width="@dimen/qq_dimen_80px"
+            android:layout_height="@dimen/qq_dimen_80px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_toRightOf="@+id/arrow"
+            android:background="@drawable/ic_launcher" />
+
+        <TextView
+            android:id="@+id/title_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/qq_dimen_8px"
+            android:layout_toRightOf="@+id/img"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/qq_dimen_30px" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_title"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin" >
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:textColor="@color/gray"
+            android:textSize="20sp" />
+
+        <View
+            android:id="@+id/msginfoLine1"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/title"
+            android:layout_marginTop="15dp"
+            android:background="?android:attr/listDivider" />
+
+        <TextView
+            android:id="@+id/update_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/msginfoLine1"
+            android:layout_marginTop="25dp"
+            android:textColor="@color/gray"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/activityType"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/update_time"
+            android:textColor="@color/gray"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/activityContent"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/update_time"
+            android:layout_marginLeft="90dp"
+            android:layout_toRightOf="@id/activityType"
+            android:autoLink="all"
+            android:textColor="@color/gray"
+            android:textSize="18sp" />
+
+        <View
+            android:id="@+id/msginfoLine2"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/activityContent"
+            android:layout_marginTop="40dp"
+            android:background="?android:attr/listDivider" />
+
+        <TextView
+            android:id="@+id/content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/msginfoLine2"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/gray"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+</RelativeLayout>

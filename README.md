@@ -1,13 +1,15 @@
 # XGPush 腾讯信鸽推送 for Cordova
 
-[151015] 庆祝 20 Stars，SDK 升级
-[151015] 内置 Promise Polyfill，修正 issue 10
+- [151229] iOS SDK 版本更新至 2.4.5，重新规划 SDK 存储路径
+- [151015] 庆祝 20 Stars，SDK 升级
+- [151015] 内置 Promise Polyfill，修正 issue 10
+
+SDK     | version
+------- | --------------------------------
+android | Xg-Push-SDK-EXPLORE-Android-2.41
+ios     | Xg-Push-SDK-iOS-2.4.5.xcode6.4
 
 腾讯信鸽推送服务：http://xg.qq.com/
-
-信鸽 Android SDK 版本：探索版 2.41
-
-信鸽 iOS SDK 版本：2.4.2
 
 Cordova 版本：3.x / 4.x / 5.x
 
@@ -25,39 +27,45 @@ cordova plugin add https://github.com/ETENG-OSP/xgpush-cordova --save \
 
 ## 使用方法
 
-安装完成即可接收推送通知。
+安装完成即可接收推送通知。这种用法适合于仅需要偶尔向全部用户发信息的情况。
 
-### xgpush.registerPush([alias])
+如果需要精确控制，参考以下 API 和事件。
 
-如果需要为接收推送的设备取别名以便有针对性的通知，需要在 `deviceready` 后注册别名：
+### API
 
-```js
-// 这里的别名是可选的，不传代表没用别名
-xgpush.registerPush('tom');
-```
+* __xgpush.registerPush([alias])__: 注册设备
 
-如果需要结果，可以用 Promise 的形式获取：
+  这个方法可以手动注册设备。如果需要为接收推送的设备取别名以便有针对性的通知，需要在 `deviceready` 后注册别名：
 
-```js
-xgpush.registerPush('tom').then(function(results) {
-  // results 里有 flag 和 data
-  alert('设备的 token 是: ' + results.data);
-});
-```
+  ```js
+  // 这里的别名是可选的，不传代表没用别名
+  xgpush.registerPush('tom');
+  ```
 
-可以重复注册，下一个别名会替换上一个别名。
+  如果需要结果，可以用 Promise 的形式获取：
 
-### xgpush.unregisterPush()
+  ```js
+  xgpush.registerPush('tom').then(function(results) {
+    // results 里有 flag 和 data
+    alert('设备的 token 是: ' + results.data);
+  });
+  ```
 
-如果不想接收推送，使用 `xgpush.unregisterPush`：
+  可以重复注册，下一个别名会替换上一个别名。
 
-```js
-xgpush.unregisterPush()
-```
+* __xgpush.unregisterPush()__: 注销设备
 
-这个方法也返回 Promise。
+  如果不想接收推送，使用 `xgpush.unregisterPush`：
 
-### 事件：textmessage
+  ```js
+  xgpush.unregisterPush()
+  ```
+
+  这个方法也返回 Promise。
+
+### 事件
+
+* __textmessage__: 文本消息
 
 如果需要接受消息，直接在代码里处理，可以监听 `textmessage` 事件：
 

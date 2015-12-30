@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <dimen name="qq_dimen_80px">35.56dp</dimen>
+    <dimen name="qq_dimen_27px">12.00dp</dimen>
+    <dimen name="qq_dimen_96px">42.67dp</dimen>
+    <dimen name="qq_dimen_8px">3.56dp</dimen>
+    <dimen name="qq_dimen_30px">13.33dp</dimen>
+    <dimen name="qq_dimen_70px">31.11dp</dimen>
+    <dimen name="qq_dimen_330px">146.67dp</dimen>
+
+</resources>

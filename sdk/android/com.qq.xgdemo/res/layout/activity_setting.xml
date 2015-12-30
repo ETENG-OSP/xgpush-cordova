@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/white" >
+
+    <RelativeLayout
+        android:id="@+id/title"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/qq_dimen_96px"
+        android:background="@android:color/black" >
+
+        <ImageButton  
+            android:id="@+id/arrow"
+            android:contentDescription="@string/action_back"
+            android:layout_width="@dimen/qq_dimen_70px"
+            android:layout_height="@dimen/qq_dimen_70px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/qq_dimen_30px"
+            android:background="@drawable/fuxk_back" />
+        
+        <View
+            android:id="@+id/img"
+            android:layout_width="@dimen/qq_dimen_80px"
+            android:layout_height="@dimen/qq_dimen_80px"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:background="@drawable/ic_launcher" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/qq_dimen_8px"
+            android:layout_toRightOf="@+id/img"
+            android:text="@string/action_setting"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/qq_dimen_30px" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin" >
+
+        <Button
+            android:id="@+id/Button_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="启动&amp;注册" />
+
+        <Button
+            android:id="@+id/Button_registerAccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/Button_register"
+            android:layout_below="@+id/Button_register"
+            android:text="启动&amp;注册（绑定账号）" />
+
+        <Button
+            android:id="@+id/Button_unregister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/Button_register"
+            android:layout_below="@+id/Button_registerAccount"
+            android:text="反注册" />
+
+        <Button
+            android:id="@+id/Button_setTag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/Button_register"
+            android:layout_below="@+id/Button_unregister"
+            android:text="设置标签" />
+
+        <Button
+            android:id="@+id/Button_delTag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/Button_register"
+            android:layout_below="@+id/Button_setTag"
+            android:text="删除标签" />
+
+        <Button
+            android:id="@+id/Button_clearCache"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/Button_register"
+            android:layout_below="@+id/Button_delTag"
+            android:text="清除本地缓存" />
+
+        <Button
+            android:id="@+id/Button_copyToken"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/Button_clearCache"
+            android:layout_below="@+id/Button_clearCache"
+            android:text="复制Token" />
+    </RelativeLayout>
+
+</RelativeLayout>

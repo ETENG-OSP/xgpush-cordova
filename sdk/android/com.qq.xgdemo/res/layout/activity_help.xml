@@ -1,0 +1,166 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/white" >
+
+    <RelativeLayout
+        android:id="@+id/title"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/qq_dimen_96px"
+        android:background="@android:color/black" >
+
+        <ImageButton  
+            android:id="@+id/arrow"
+            android:contentDescription="@string/action_back"
+            android:layout_width="@dimen/qq_dimen_70px"
+            android:layout_height="@dimen/qq_dimen_70px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/qq_dimen_30px"
+            android:background="@drawable/fuxk_back" />
+
+        <View
+            android:id="@+id/img"
+            android:layout_width="@dimen/qq_dimen_80px"
+            android:layout_height="@dimen/qq_dimen_80px"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:background="@drawable/ic_launcher" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/qq_dimen_8px"
+            android:layout_toRightOf="@+id/img"
+            android:text="@string/action_help_center"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/qq_dimen_30px" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin" >
+
+        <TextView
+            android:id="@+id/help1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="1.示例app是什么？"
+            android:textColor="@color/gray"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/help2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/help1"
+            android:text="示例app是系统自动为您生成的，与QQ号相对应的体验应用，您可以通过在网页端发送消息，在示例app上体验推送效果。"
+            android:textColor="@color/gray"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/help3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/help2"
+            android:layout_marginTop="10dp"
+            android:autoLink="all"
+            android:text="2.常见问题"
+            android:textColor="@color/gray"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/help4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/help3"
+            android:layout_marginTop="10dp"
+            android:autoLink="all"
+            android:text="Q:Demo App安装了，推送出消息却无法收到？"
+            android:textColor="@color/gray"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/help5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/help4"
+            android:autoLink="all"
+            android:text="A:Demo安装后，请等待Demo首页显示您的设备token码，并且刷新电脑端网页；待应用列表内Demo app后的覆盖设备数由0变为1后，即表示设备已注册，可以正常接收消息。"
+            android:textColor="@color/gray"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/help6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/help5"
+            android:layout_marginTop="10dp"
+            android:autoLink="all"
+            android:text="Q:我给Demo App推送消息，别人会收到吗？"
+            android:textColor="@color/gray"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/help7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/help6"
+            android:autoLink="all"
+            android:text="A:每一个QQ号都有对应的Demo App，因此别人不会收到您推送出的消息，同样您也不会收到别人的消息。"
+            android:textColor="@color/gray"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/help8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/help7"
+            android:layout_marginTop="10dp"
+            android:autoLink="all"
+            android:text="Q:想利用Demo App测试一下单条消息的群发状态，可以吗？"
+            android:textColor="@color/gray"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/help9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/help8"
+            android:autoLink="all"
+            android:text="A:每一个QQ号都有对应的Demo App，如果您将Demo的安装包或二维码自愿提供给除您自己以外的人，您在网页端测试推送消息时，凡安装过该demo的设备都会收到该消息。"
+            android:textColor="@color/gray"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/help10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/help9"
+            android:layout_marginTop="10dp"
+            android:autoLink="all"
+            android:text="请参考 http://developer.xg.qq.com"
+            android:textColor="@color/gray"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+</RelativeLayout>
