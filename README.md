@@ -29,9 +29,11 @@ cordova plugin add https://github.com/ETENG-OSP/xgpush-cordova --save \
 
 安装完成即可接收推送通知。这种用法适合于仅需要偶尔向全部用户发信息的情况。
 
-如果需要控制接受的设备，或是监听接到的信息并做处理，可以使用以下 API：
+如果需要精确控制，参考以下 API 和事件。
 
-- __xgpush.registerPush([alias])__: 注册设备
+### API
+
+* __xgpush.registerPush([alias])__: 注册设备
 
   这个方法可以手动注册设备。如果需要为接收推送的设备取别名以便有针对性的通知，需要在 `deviceready` 后注册别名：
 
@@ -61,7 +63,9 @@ cordova plugin add https://github.com/ETENG-OSP/xgpush-cordova --save \
 
   这个方法也返回 Promise。
 
-### 事件：textmessage
+### 事件
+
+* __textmessage__: 文本消息
 
 如果需要接受消息，直接在代码里处理，可以监听 `textmessage` 事件：
 
