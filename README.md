@@ -1,13 +1,13 @@
 # XGPush 腾讯信鸽推送 for Cordova
 
+- [160119] 升级 SDK
 - [151229] iOS SDK 版本更新至 2.4.5，重新规划 SDK 存储路径
 - [151015] 庆祝 20 Stars，SDK 升级
-- [151015] 内置 Promise Polyfill，修正 issue 10
 
 SDK     | version
 ------- | --------------------------------
-android | Xg-Push-SDK-EXPLORE-Android-2.41
-ios     | Xg-Push-SDK-iOS-2.4.5.xcode6.4
+android | Xg-Push-SDK-Android-2.42
+ios     | Xg-Push-SDK-iOS-2.4.6
 
 腾讯信鸽推送服务：http://xg.qq.com/
 
