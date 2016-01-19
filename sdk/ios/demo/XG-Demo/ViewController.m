@@ -93,33 +93,32 @@
 }
 
 - (IBAction)logoutDevice:(id)sender{
-    [XGPush unRegisterDevice];
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"信鸽推送"
-                                                    message:@"注销设备"
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
-	[alert release];
+	[XGPush unRegisterDevice:^{
+		    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"信鸽推送"
+		                                                    message:@"注销设备success"
+		                                                   delegate:nil
+		                                          cancelButtonTitle:@"OK"
+		                                          otherButtonTitles:nil];
+		    [alert show];
+			[alert release];
+
+	} errorCallback:^{
+		
+		    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"信鸽推送"
+		                                                    message:@"注销设备fail"
+		                                                   delegate:nil
+		                                          cancelButtonTitle:@"OK"
+		                                          otherButtonTitles:nil];
+		    [alert show];
+			[alert release];
+
+	}];
 }
 
 - (IBAction)toggleDebug:(id)sender
 {
 	XGSetting *setting = [XGSetting getInstance];
 	[setting enableDebug:self->swShowLog.on];
-}
-
-- (IBAction)localPush:(id)sender {
-	NSDate *fireDate = [[NSDate new] dateByAddingTimeInterval:10];
-	
-	NSMutableDictionary *dicUserInfo = [[NSMutableDictionary alloc] init];
-	[dicUserInfo setValue:@"myid" forKey:@"clockID"];
-	NSDictionary *userInfo = dicUserInfo;
-	
-	[XGPush localNotification:fireDate alertBody:@"测试本地推送" badge:2 alertAction:@"确定" userInfo:userInfo];
-
-
 }
 
 @end

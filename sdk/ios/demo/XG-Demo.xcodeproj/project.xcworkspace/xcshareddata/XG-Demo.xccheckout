@@ -14,11 +14,11 @@
 		<string>http://tc-svn.tencent.com/doss/doss_da_rep/c_cpp_proj</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>branches/xg_iOS/20150805v1/Xg-Push-SDK-iOS-2.4.5.xcode6.4/demo/XG-Demo.xcodeproj</string>
+	<string>branches/xg_iOS/20150805v1/XG-Demo/XG-Demo.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>796f004e-8ca1-11e4-8487-d1132ac2dc54++5801</key>
-		<string>../../../../../../..</string>
+		<string>../../../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectRepositoryRootDictionary</key>
 	<dict>
@@ -26,7 +26,7 @@
 		<string>http://tc-svn.tencent.com/doss/doss_da_rep</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>http://tc-svn.tencent.com/doss/doss_da_rep/c_cpp_proj/branches/xg_iOS/20150805v1/Xg-Push-SDK-iOS-2.4.5.xcode6.4/demo/XG-Demo.xcodeproj</string>
+	<string>http://tc-svn.tencent.com/doss/doss_da_rep/c_cpp_proj/branches/xg_iOS/20150805v1/XG-Demo/XG-Demo.xcodeproj</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>

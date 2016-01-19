@@ -71,7 +71,7 @@
     //[XGPush startApp:101 appKey:@"akey"];
     
     
-	[XGPush startApp:2200022728 appKey:@"IYU5JW2I149A"];
+    [XGPush startApp:2200022728 appKey:@"IMJ34Y25JN4I"];
     //[XGPush startApp:2290000353 appKey:@"key1"];
     
     //注销之后需要再次注册前的准备
@@ -174,7 +174,6 @@
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     
     //NSString * deviceTokenStr = [XGPush registerDevice:deviceToken];
-	[XGPush setAccount:@"testAccount"];
     
     void (^successBlock)(void) = ^(void){
         //成功之后的处理
@@ -185,12 +184,11 @@
         //失败之后的处理
         NSLog(@"[XGPush Demo]register errorBlock");
     };
-    
-    //注册设备
-	XGSetting *setting = (XGSetting *)[XGSetting getInstance];
-    [setting setChannel:@"appstore"];
-    [setting setGameServer:@"巨神峰"];
 	
+	// 设置账号
+//	[XGPush setAccount:@"test"];
+	
+    //注册设备
     NSString * deviceTokenStr = [XGPush registerDevice:deviceToken successCallback:successBlock errorCallback:errorBlock];
     
     //如果不需要回调

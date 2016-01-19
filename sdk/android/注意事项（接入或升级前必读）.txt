@@ -10,6 +10,23 @@ http://developer.xg.qq.com/index.php/Main_Page
 常见问题
 http://developer.xg.qq.com/index.php/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98
 
+
+日期：2016.1.10
+版本：V2.42
+说明：
+1、优化抵达率
+2、权限清理
+升级提示：
+1.使用xg.jar替换旧版本
+2.复制libs目录下的文件，替换旧的
+	1、复制libtpnsSecurity.so和libtpnsWatchdog.so到工程的libs目录。
+	！！注意！！：通常只需要添加armeabi目录即可，若您的工程还有其它平台的.so，请选择对应平台添加上去，具体可自行网上搜索答案。
+3.若您的工程没有使用MTA（腾讯云分析），删除mid-sdk-2.10.jar
+4.参考AndroidManifest.xml配置相关内容
+5.XGPushActivity和用户自定义的MessageReceiver的android:exported建议设置为"false" ，具体请参考demo中的AndroidManifest.xml
+
+
+
 日期：2015.3.10
 版本：V2.40
 说明：

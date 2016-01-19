@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define XG_SDK_VERSION @"2.4.4"
+#define XG_SDK_VERSION @"2.4.6"
 
 @interface XGSetting : NSObject
 

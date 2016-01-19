@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		682353661BAAA4AA003BBC84 /* libXG-SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 682353641BAAA49A003BBC84 /* libXG-SDK.a */; };
-		68CB33341BE057C70043B735 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68CB33331BE057C70043B735 /* Security.framework */; };
+		68AB79AB1C28E40B00F62A8B /* libXG-SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 682353641BAAA49A003BBC84 /* libXG-SDK.a */; };
 		6E320D68183361B600FE8CF6 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E320D67183361B600FE8CF6 /* CoreTelephony.framework */; };
 		6E320D6A1833629F00FE8CF6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E320D691833629F00FE8CF6 /* SystemConfiguration.framework */; };
 		6E5B573518C03BA0001C4722 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5B573118C034CE001C4722 /* CFNetwork.framework */; };
@@ -29,7 +28,6 @@
 		6808590E1B259816008873B2 /* XGPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGPush.h; sourceTree = "<group>"; };
 		6808590F1B259816008873B2 /* XGSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGSetting.h; sourceTree = "<group>"; };
 		682353641BAAA49A003BBC84 /* libXG-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libXG-SDK.a"; path = "sdk/libXG-SDK.a"; sourceTree = "<group>"; };
-		68CB33331BE057C70043B735 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		6E1DBAD019241ACA0023552E /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		6E320D65183361A800FE8CF6 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		6E320D67183361B600FE8CF6 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -59,8 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68CB33341BE057C70043B735 /* Security.framework in Frameworks */,
-				682353661BAAA4AA003BBC84 /* libXG-SDK.a in Frameworks */,
+				68AB79AB1C28E40B00F62A8B /* libXG-SDK.a in Frameworks */,
 				6E61A1A51924289B005D137D /* libsqlite3.dylib in Frameworks */,
 				6E5B573518C03BA0001C4722 /* CFNetwork.framework in Frameworks */,
 				6E6D5EFC18BF3F1C009584A0 /* libz.dylib in Frameworks */,
@@ -105,7 +102,6 @@
 		6E6B91D6182A6965000D102E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				68CB33331BE057C70043B735 /* Security.framework */,
 				682353641BAAA49A003BBC84 /* libXG-SDK.a */,
 				F03666F31B4FC047008DC982 /* libXG-SDK.a */,
 				6E61A1A41924289B005D137D /* libsqlite3.dylib */,
@@ -319,9 +315,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CLANG_MODULES_AUTOLINK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				"ENABLE_NS_ASSERTIONS[arch=*]" = YES;
@@ -330,6 +324,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/sdk",
 				);
 				INFOPLIST_FILE = "XG-Demo/XG-Demo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
@@ -341,8 +336,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/sdk";
+				PROVISIONING_PROFILE = "5d0ea25a-0d38-4d64-8f03-f08a2bec29d7";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
@@ -353,9 +347,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CLANG_MODULES_AUTOLINK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -363,6 +355,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/sdk",
 				);
 				INFOPLIST_FILE = "XG-Demo/XG-Demo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
@@ -374,9 +367,8 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5d0ea25a-0d38-4d64-8f03-f08a2bec29d7";
 				SKIP_INSTALL = NO;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/sdk";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
@@ -419,9 +411,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CLANG_MODULES_AUTOLINK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -429,6 +419,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/sdk",
 				);
 				INFOPLIST_FILE = "XG-Demo/XG-Demo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
@@ -440,9 +431,8 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5d0ea25a-0d38-4d64-8f03-f08a2bec29d7";
 				SKIP_INSTALL = NO;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/sdk";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
