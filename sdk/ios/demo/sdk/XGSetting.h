@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-#define XG_SDK_VERSION @"2.4.6"
+#define XG_SDK_VERSION @"2.5.0"
 
 @interface XGSetting : NSObject
 
-@property (nonatomic,retain) NSString* Channel;
-@property (nonatomic,retain) NSString* GameServer;
+@property (nonatomic,retain) NSString* Channel DEPRECATED_MSG_ATTRIBUTE("此属性已经废弃");
+@property (nonatomic,retain) NSString* GameServer DEPRECATED_MSG_ATTRIBUTE("此属性已经废弃");
 
 +(id)getInstance;
 
